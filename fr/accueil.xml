@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?> 
+<!DOCTYPE page SYSTEM "portfolio.dtd">
+<page id="accueil" lang="fr">
+    <header> 
+        <title> Bienvenue sur mon portfolio !  </title>
+        <subtitle> Bienvenue sur mon portfolio !  </subtitle>
+        <nav> 
+            <button id="btn-cv"> Curriculum vitæ </button>
+            <languages>
+                <lang code="fr" icon="ressources/img/fr_flag.png" />
+                <lang code="en" icon="ressources/img/en_flag.png" />
+                <lang code="ko" icon="ressources/img/ko_flag.png" />
+            </languages>
+        </nav>
+    </header>
+</page>
+
+
+
+
