@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe6f0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #fff0f5;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav button {
+  background-color: #ffb6c1;
+  border: none;
+  padding: 8px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+section {
+  padding: 30px;
+}
+.lang-icon {
+  width: 35px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+video {
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+}

@@ -1,18 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?> 
-<!DOCTYPE page SYSTEM "portfolio.dtd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
 <page id="accueil" lang="fr">
-    <header> 
-        <title> Bienvenue sur mon portfolio !  </title>
-        <subtitle> Bienvenue sur mon portfolio !  </subtitle>
-        <nav> 
-            <button id="btn-cv"> Curriculum vitæ </button>
-            <languages>
-                <lang code="fr" icon="ressources/img/fr_flag.png" />
-                <lang code="en" icon="ressources/img/en_flag.png" />
-                <lang code="ko" icon="ressources/img/ko_flag.png" />
-            </languages>
-        </nav>
-    </header>
+  <header>
+    <title>Bienvenue sur mon portfolio </title>
+    <subtitle>Actuellement étudiant en Master 1 d'ingénierie informatique</subtitle>
+    <nav>
+    <logo img="ressources/fr_flag.png" alt="Logo" />
+    <menu>
+        <item id="accueil">Accueil</item>
+        <item id="cv">CV</item>
+        <item id="projets">Projets</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+    </menu>
+    <themeToggle id="toggle-theme" icon="ressources/fr_flag.png">Mode</themeToggle>
+    </nav>
+
+  </header>
+
+  <main>
+    <section id="a-propos">
+      <title>À propos</title>
+      <text>
+        Actuellement étudiant en Master 1 d'ingénierie informatique à Sup Galilée, je poursuis une formation complète...
+      </text>
+      <photo src="ressources/fr_flag.png" alt="Photo de profil" />
+    </section>
+
+    <section id="video">
+      <title>Présentation vidéo</title>
+      <subtitle>Découvrez mon parcours et mes projets en vidéo</subtitle>
+      <video platform="youtube" src="https://www.youtube.com/embed/o8NPllzkFhE" />
+    </section>
+  </main>
+
+  <footer>
+    <copyright>© 2025 Catherine CALI -Tous droits réservés.</copyright>
+  </footer>
 </page>
 
 

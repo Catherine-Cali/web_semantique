@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Portfolio de Catherine Sidar CALI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffe6f0; /* Rose pâle */
-      text-align: center;
-      padding: 50px;
+      background-color: #ffe6f0;
+      margin: 0;
+      padding: 0;
     }
-    h1 {
-      color: #333;
+    #content {
+      padding: 50px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Bonjour, vous vous trouvez sur le portfolio de Catherine Sidar CALI 🌸 .</h1>
+  <div id="content">Chargement du contenu...</div>
+
+  <script>
+    async function loadXMLXSL(xmlPath, xslPath) {
+      const parser = new DOMParser();
+
+      const [xmlRes, xslRes] = await Promise.all([
+        fetch(xmlPath),
+        fetch(xslPath)
+      ]);
+
+      const xmlText = await xmlRes.text();
+      const xslText = await xslRes.text();
+
+      const xml = parser.parseFromString(xmlText, "application/xml");
+      const xsl = parser.parseFromString(xslText, "application/xml");
+
+      const xsltProcessor = new XSLTProcessor();
+      xsltProcessor.importStylesheet(xsl);
+
+      const result = xsltProcessor.transformToFragment(xml, document);
+      document.getElementById("content").innerHTML = "";
+      document.getElementById("content").appendChild(result);
+    }
+
+    // Change la langue ici si besoin
+    const lang = "fr";
+    loadXMLXSL(`${lang}/accueil.xml`, `portfolio.xsl`);
+  </script>
 </body>
 </html>
+
