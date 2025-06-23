@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="cv" lang="ko">
+  <header>
+    <nav>
+      <logo img="ressources/ko_flag.png" alt="로고" />
+      <menu>
+        <item id="accueil">홈</item>
+        <item id="cv">이력서</item>
+        <item id="projets">프로젝트</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+      </menu>
+      <themeToggle id="toggle-theme" icon="ressources/ko_flag.png">모드</themeToggle>
+    </nav>
+  </header>
+
+  <main>
+    <section id="profil">
+      <title>프로필</title>
+      <text>
+열정적인 학생이며, 현재 프랑스 국방부에서 데이터 엔지니어로 일하고 있습니다. 
+개발, 데이터 처리, 프로젝트 관리, Qlik Sense 시각화 경험이 있습니다.
+      </text>
+    </section>
+
+    <section id="experiences">
+      <title>경력</title>
+
+      <experience>
+        <poste>데이터 엔지니어</poste>
+        <employeur>프랑스 국방부</employeur>
+        <lieu>르크렘랑-비세트르, 프랑스</lieu>
+        <periode>2023년 10월 – 현재</periode>
+        <missions>
+          <mission>기업 아키텍처 도구 표준화.</mission>
+          <mission>Qlik Sense로 데이터 파이프라인 구축.</mission>
+          <mission>250개 이상의 시스템에 대한 대시보드 개발.</mission>
+        </missions>
+      </experience>
+
+      <experience>
+        <poste>프리랜서 아티즌</poste>
+        <employeur>Cathie’s Studio</employeur>
+        <lieu>파리</lieu>
+        <periode>2022년 8월 – 2023년 9월</periode>
+        <missions>
+          <mission>수제 양초 제작 및 판매.</mission>
+          <mission>웹사이트 및 주문 관리.</mission>
+        </missions>
+      </experience>
+
+      <experience>
+        <poste>개인 과외 교사</poste>
+        <lieu>파리</lieu>
+        <periode>2020년 9월 – 2023년 11월</periode>
+        <missions>
+          <mission>초등학생 숙제 지도.</mission>
+          <mission>맞춤형 교육 콘텐츠 제작.</mission>
+        </missions>
+      </experience>
+    </section>
+
+    <section id="formation">
+      <title>학력</title>
+
+      <diplome>
+        <etablissement>SUP Galilée, Sorbonne Paris Nord</etablissement>
+        <intitule>컴퓨터 공학 공학사</intitule>
+        <periode>2022 – 2026</periode>
+      </diplome>
+
+      <diplome>
+        <etablissement>Polytech Sorbonne</etablissement>
+        <intitule>통합 과학 예비 과정</intitule>
+        <periode>2020 – 2022</periode>
+      </diplome>
+
+      <diplome>
+        <etablissement>Lycée René Cassin</etablissement>
+        <intitule>과학 고등학교 졸업 (우등)</intitule>
+        <periode>2017 – 2020</periode>
+      </diplome>
+    </section>
+
+    <section id="competences">
+      <title>기술 스킬</title>
+      <list>
+        <item>언어: Python, C, JavaScript, HTML/CSS, Java</item>
+        <item>프레임워크: React, Next.js, Tailwind CSS</item>
+        <item>데이터: SQL, Qlik Sense, ETL</item>
+        <item>도구: Tuleap, GitHub, REST API, UX/UI</item>
+      </list>
+    </section>
+
+    <section id="langues">
+      <title>언어</title>
+      <list>
+        <item>프랑스어: 원어민</item>
+        <item>영어: 능통 (TOEIC: 975/990)</item>
+        <item>터키어: 능통</item>
+      </list>
+    </section>
+
+    <section id="loisirs">
+      <title>취미</title>
+      <list>
+        <item>달리기, 하이킹, 야영</item>
+        <item>여행, 문화, 언어</item>
+        <item>독서, 사진, 영상 제작</item>
+      </list>
+    </section>
+  </main>
+
+  <footer>
+    <contact>이메일: catherinecalipro@gmail.com</contact>
+    <contact>LinkedIn: https://linkedin.com/in/catherine-cali</contact>
+    <contact>GitHub: https://github.com/Catherine-Cali</contact>
+    <copyright>© 2025 Catherine CALI – 판권 소유.</copyright>
+  </footer>
+</page>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="projets" lang="ko">
+  <header>
+    <nav>
+      <logo img="ressources/ko_flag.png" alt="로고" />
+      <menu>
+        <item id="accueil">홈</item>
+        <item id="cv">이력서</item>
+        <item id="projets">프로젝트</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+      </menu>
+    </nav>
+  </header>
+
+  <main>
+    <section id="projets">
+
+      <projet>
+        <titre>전함 게임</titre>
+        <categorie>학업 프로젝트</categorie>
+        <technos>
+          <techno>C</techno>
+          <techno>GTK</techno>
+        </technos>
+        <image src="ressources/bataille.png" alt="전함 게임" />
+        <description>
+          <point>C와 GTK 그래픽 인터페이스를 사용하여 인공지능 또는 로컬 멀티플레이어와 대결할 수 있는 전함 게임을 개발했습니다.</point>
+          <point>플레이어는 배를 배치하고 AI 그리드에 포를 쏘며, AI는 효과적으로 목표를 찾는 알고리즘을 사용합니다.</point>
+          <point>로컬 멀티플레이어 모드에서 배는 위치를 숨기기 위해 무작위로 배치됩니다.</point>
+        </description>
+      </projet>
+
+      <projet>
+        <titre>미니 기차 시뮬레이터</titre>
+        <categorie>학업 프로젝트</categorie>
+        <technos>
+          <techno>HTML</techno>
+          <techno>CSS</techno>
+          <techno>JavaScript</techno>
+        </technos>
+        <image src="ressources/train.png" alt="기차 시뮬레이터" />
+        <description>
+          <point>2D 보드에서 열차가 레일을 따라 움직이는 기차 시뮬레이터를 개발했습니다.</point>
+          <point>열차가 보드를 벗어나거나 호환되지 않는 타일을 지나가지 않도록 제약을 구현했습니다.</point>
+          <point>사용자가 실시간으로 열차를 추가하고 보드를 편집하며 행동을 관찰할 수 있습니다.</point>
+        </description>
+      </projet>
+
+      <projet>
+        <titre>포트폴리오 웹사이트</titre>
+        <categorie>개인 프로젝트</categorie>
+        <technos>
+          <techno>HTML</techno>
+          <techno>CSS</techno>
+          <techno>JavaScript</techno>
+        </technos>
+        <image src="ressources/portfolio.png" alt="포트폴리오 웹사이트" />
+        <description>
+          <point>프로젝트와 기술을 보여주기 위해 개인 포트폴리오 웹사이트를 설계하고 개발했습니다.</point>
+          <point>모든 기기에서 보기 좋도록 반응형 디자인을 구현했습니다.</point>
+          <point>JavaScript를 사용하여 인터랙티브한 기능을 추가하고 사용자 경험을 향상시켰습니다.</point>
+        </description>
+      </projet>
+
+      <projet>
+        <titre>물류 센터 배치</titre>
+        <categorie>학업 프로젝트</categorie>
+        <technos>
+          <techno>운영 연구</techno>
+          <techno>ILP</techno>
+          <techno>메타휴리스틱</techno>
+        </technos>
+        <image src="ressources/oloc.png" alt="Optimisation"/>
+        <description>
+          <point>국가 내에서 물류 센터를 최적 배치하기 위한 조합 최적화 문제를 연구했습니다.</point>
+          <point>선형 및 조합 최적화 개념을 적용했습니다.</point>
+          <point>ILP를 사용하여 문제를 모델링하고 탐욕 및 메타휴리스틱 방법을 개발했습니다.</point>
+          <point>품질과 계산 시간을 기준으로 방법을 비교하여 최적 솔루션을 추천했습니다.</point>
+        </description>
+      </projet>
+
+    </section>
+  </main>
+
+  <footer>
+    <copyright>© 2025 Catherine CALI – 판권 소유.</copyright>
+  </footer>
+</page>

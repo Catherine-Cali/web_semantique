@@ -25,7 +25,7 @@
           <techno>C</techno>
           <techno>GTK</techno>
         </technos>
-        <image src="ressources/projets/bataille.png" alt="Battleship Game" />
+        <image src="ressources/bataille.png" alt="Battleship Game" />
         <description>
           <point>Developed a Battleship game in C with a GTK graphical interface, allowing play against AI or local multiplayer.</point>
           <point>The player places ships and fires on the AI grid, which uses algorithms to effectively target ships.</point>
@@ -42,7 +42,7 @@
           <techno>CSS</techno>
           <techno>JavaScript</techno>
         </technos>
-        <image src="ressources/projets/train.png" alt="Train Simulator" />
+        <image src="ressources/train.png" alt="Train Simulator" />
         <description>
           <point>Developed a 2D train simulator where trains move along tracks on a board.</point>
           <point>Implemented rules to prevent trains from leaving the board or using incompatible tiles.</point>
@@ -59,7 +59,7 @@
           <techno>CSS</techno>
           <techno>JavaScript</techno>
         </technos>
-        <image src="ressources/projets/portfolio.png" alt="Portfolio Website" />
+        <image src="ressources/portfolio.png" alt="Portfolio Website" />
         <description>
           <point>Designed and developed a personal portfolio website to showcase projects and skills.</point>
           <point>Implemented a responsive design to ensure optimal viewing on all devices.</point>
@@ -76,6 +76,7 @@
           <techno>ILP</techno>
           <techno>Metaheuristics</techno>
         </technos>
+         <image src="ressources/oloc.png" alt="Optimisation"/>
         <description>
           <point>Studied a combinatorial optimization problem to place logistics centers optimally in a country.</point>
           <point>Applied concepts from linear and combinatorial optimization.</point>

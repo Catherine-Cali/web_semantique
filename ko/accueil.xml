@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
+<page id="accueil" lang="ko">
+  <header>
+    <nav>
+      <logo img="ressources/ko_flag.png" alt="로고" />
+      <menu>
+        <item id="accueil">홈</item>
+        <item id="cv">이력서</item>
+        <item id="projets">프로젝트</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+      </menu>
+      <themeToggle id="toggle-theme" icon="ressources/ko_flag.png">모드</themeToggle>
+    </nav>
+  </header>
+
+  <main>
+    <section id="a-propos">
+      <title>소개</title>
+      <text>
+안녕하세요!
+제 이름은 Catherine Sidar CALI입니다. 현재 컴퓨터 공학 2학년에 재학 중이며 워크스테디 프로그램을 통해 공부하고 있습니다.
+이 포트폴리오는 웹 의미론 프로젝트의 일부로, 제 기술 역량을 보여주기 위해 제작하였습니다.
+현재 프랑스 국방부에서 데이터 엔지니어로 인턴십 중이며, 독서, 하이킹, 자연, 꽃, 달리기, 그리고 스위프트 팬입니다.
+작고 재미있는 프로젝트를 만드는 것을 좋아합니다.
+      </text>
+      <photo src="ressources/profilepic.png" alt="프로필 사진" />
+    </section>
+
+    <section id="video">
+      <title>소개 영상</title>
+      <subtitle>제 배경과 프로젝트를 영상으로 만나보세요</subtitle>
+      <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
+    </section>
+  </main>
+
+  <footer>
+    <copyright>© 2025 Catherine CALI – 판권 소유.</copyright>
+  </footer>
+</page>
