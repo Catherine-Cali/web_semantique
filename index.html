@@ -4,49 +4,47 @@
   <meta charset="UTF-8" />
   <title>Portfolio de Catherine Sidar CALI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffe6f0;
-      margin: 0;
-      padding: 0;
-    }
-    #content {
-      padding: 50px;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="content">Chargement du contenu...</div>
+  <div id="content">Chargement...</div>
 
   <script>
-    async function loadXMLXSL(xmlPath, xslPath) {
+    function loadXMLXSL(xmlPath, xslPath, page = "accueil", lang = "fr") {
+      history.pushState({}, "", `?page=${page}&lang=${lang}`);
+
       const parser = new DOMParser();
+      Promise.all([fetch(xmlPath), fetch(xslPath)])
+        .then(([xmlRes, xslRes]) => Promise.all([xmlRes.text(), xslRes.text()]))
+        .then(([xmlText, xslText]) => {
+          const xml = parser.parseFromString(xmlText, "application/xml");
+          const xsl = parser.parseFromString(xslText, "application/xml");
 
-      const [xmlRes, xslRes] = await Promise.all([
-        fetch(xmlPath),
-        fetch(xslPath)
-      ]);
+          const processor = new XSLTProcessor();
+          processor.importStylesheet(xsl);
+          const result = processor.transformToFragment(xml, document);
 
-      const xmlText = await xmlRes.text();
-      const xslText = await xslRes.text();
-
-      const xml = parser.parseFromString(xmlText, "application/xml");
-      const xsl = parser.parseFromString(xslText, "application/xml");
-
-      const xsltProcessor = new XSLTProcessor();
-      xsltProcessor.importStylesheet(xsl);
-
-      const result = xsltProcessor.transformToFragment(xml, document);
-      document.getElementById("content").innerHTML = "";
-      document.getElementById("content").appendChild(result);
+          const content = document.getElementById("content");
+          content.innerHTML = "";
+          content.appendChild(result);
+        });
     }
 
-    // Change la langue ici si besoin
-    const lang = "fr";
-    loadXMLXSL(`${lang}/accueil.xml`, `portfolio.xsl`);
+    // Charge la bonne page au démarrage
+    const urlParams = new URLSearchParams(window.location.search);
+    const page = urlParams.get("page") || "accueil";
+    const lang = urlParams.get("lang") || "fr";
+    loadXMLXSL(`${lang}/${page}.xml`, "portfolio.xsl", page, lang);
+
+    // Gère les retours arrière / avant
+    window.addEventListener("popstate", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = urlParams.get("page") || "accueil";
+      const lang = urlParams.get("lang") || "fr";
+      loadXMLXSL(`${lang}/${page}.xml`, "portfolio.xsl", page, lang);
+    });
   </script>
 </body>
+
 </html>
 

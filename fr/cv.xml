@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="cv" lang="fr">
+<header>
+  <nav>
+    <logo img="ressources/fr_flag.png" alt="Logo" />
+    <menu>
+      <item id="accueil">Accueil</item>
+      <item id="cv">CV</item>
+      <item id="projets">Projets</item>
+      <lang code="fr" icon="ressources/fr_flag.png" />
+      <lang code="en" icon="ressources/en_flag.png" />
+      <lang code="ko" icon="ressources/ko_flag.png" />
+    </menu>
+    <themeToggle id="toggle-theme" icon="ressources/fr_flag.png">Mode</themeToggle>
+  </nav>
+</header>
+
+
+  <main>
+    <section id="profil">
+      <title>Profil</title>
+      <text>
+        Étudiante motivée, actuellement alternante au Ministère des Armées comme Data Engineer. Expérience en développement, traitement de données, gestion de projets, et visualisation avec Qlik Sense.
+      </text>
+    </section>
+
+    <section id="experiences">
+      <title>Expériences professionnelles</title>
+
+      <experience>
+        <poste>Data Engineer</poste>
+        <employeur>Ministère des Armées</employeur>
+        <lieu>Kremlin-Bicêtre, France</lieu>
+        <periode>Octobre 2023 - Aujourd'hui</periode>
+        <missions>
+          <mission>Harmonisation des outils d’architecture d’entreprise.</mission>
+          <mission>Implémentation d’un pipeline de données vers Qlik Sense.</mission>
+          <mission>Développement de tableaux de bord interactifs pour 250+ systèmes.</mission>
+        </missions>
+      </experience>
+
+      <experience>
+        <poste>Artisane auto-entrepreneuse</poste>
+        <employeur>Cathie’s Studio</employeur>
+        <lieu>Paris</lieu>
+        <periode>Aout 2022 - Septembre 2023</periode>
+        <missions>
+          <mission>Création et vente de bougies artisanales.</mission>
+          <mission>Gestion du site web et des commandes clients.</mission>
+        </missions>
+      </experience>
+
+      <experience>
+        <poste>Professeure particulière</poste>
+        <lieu>Paris</lieu>
+        <periode>Septembre 2020 - Novembre 2023</periode>
+        <missions>
+          <mission>Aide aux devoirs pour des élèves de primaire.</mission>
+          <mission>Création de contenus pédagogiques adaptés.</mission>
+        </missions>
+      </experience>
+    </section>
+
+    <section id="formation">
+      <title>Formation</title>
+
+      <diplome>
+        <etablissement>SUP Galilée, Sorbonne Paris Nord</etablissement>
+        <intitule>Diplôme d'ingénieur informatique</intitule>
+        <periode>2022 - 2026</periode>
+      </diplome>
+
+      <diplome>
+        <etablissement>Polytech Sorbonne</etablissement>
+        <intitule>Classe préparatoire intégrée (scientifique)</intitule>
+        <periode>2020 - 2022</periode>
+      </diplome>
+
+      <diplome>
+        <etablissement>Lycée René Cassin</etablissement>
+        <intitule>Baccalauréat scientifique, mention Bien</intitule>
+        <periode>2017 - 2020</periode>
+      </diplome>
+    </section>
+
+    <section id="competences">
+      <title>Compétences techniques</title>
+      <list>
+        <item>Langages : Python, C, JavaScript, HTML/CSS, Java</item>
+        <item>Frameworks : React, Next.js, Tailwind CSS</item>
+        <item>Données : SQL, Qlik Sense, ETL</item>
+        <item>Outils : Tuleap, GitHub, API REST, UX/UI</item>
+      </list>
+    </section>
+
+    <section id="langues">
+      <title>Langues</title>
+      <list>
+        <item>Français : Langue maternelle</item>
+        <item>Anglais : Courant (TOEIC : 975/990)</item>
+        <item>Turc : Courant</item>
+      </list>
+    </section>
+
+    <section id="loisirs">
+      <title>Centres d’intérêt</title>
+      <list>
+        <item>Course, randonnée, bivouac</item>
+        <item>Voyages, cultures, langues</item>
+        <item>Lecture, photographie, création vidéo</item>
+      </list>
+    </section>
+  </main>
+
+  <footer>
+    <contact>Email : catherinecalipro@gmail.com</contact>
+    <contact>LinkedIn : https://linkedin.com/in/catherine-cali</contact>
+    <contact>GitHub : https://github.com/Catherine-Cali</contact>
+  </footer>
+</page>

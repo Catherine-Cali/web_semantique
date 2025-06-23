@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
+<page id="accueil" lang="en">
+  <header>
+    <nav>
+      <logo img="ressources/en_flag.png" alt="Logo" />
+      <menu>
+        <item id="accueil">Home</item>
+        <item id="cv">Resume</item>
+        <item id="projets">Projects</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+      </menu>
+      <themeToggle id="toggle-theme" icon="ressources/en_flag.png">Mode</themeToggle>
+    </nav>
+  </header>
+
+  <main>
+    <section id="a-propos">
+      <title>About Me</title>
+      <text>
+Hi there! 
+My name is Catherine Sidar CALI. I am currently a second-year computer engineering student in a work-study program, 
+and I'm building this portfolio as part of my semantic web project to showcase my technical skills.
+I am currently working at the Ministry of the Armed Forces as a data engineer.
+I have many different interests – I love reading, hiking, nature, flowers, running, and I'm a big Swiftie.
+I also enjoy creating fun little projects.
+      </text>
+      <photo src="ressources/profilepic.png" alt="Profile Picture" />
+    </section>
+
+    <section id="video">
+      <title>Video Introduction</title>
+      <subtitle>Discover my background and projects in video format</subtitle>
+      <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
+    </section>
+  </main>
+
+  <footer>
+    <copyright>© 2025 Catherine CALI – All rights reserved.</copyright>
+  </footer>
+</page>

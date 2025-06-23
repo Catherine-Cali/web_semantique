@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="projets" lang="en">
+  <header>
+    <nav>
+      <logo img="ressources/en_flag.png" alt="Logo" />
+      <menu>
+        <item id="accueil">Home</item>
+        <item id="cv">Resume</item>
+        <item id="projets">Projects</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+      </menu>
+    </nav>
+  </header>
+
+  <main>
+    <section id="projets">
+
+      <!-- Project 1 -->
+      <projet>
+        <titre>Battleship Game</titre>
+        <categorie>ACADEMIC PROJECT</categorie>
+        <technos>
+          <techno>C</techno>
+          <techno>GTK</techno>
+        </technos>
+        <image src="ressources/projets/bataille.png" alt="Battleship Game" />
+        <description>
+          <point>Developed a Battleship game in C with a GTK graphical interface, allowing play against AI or local multiplayer.</point>
+          <point>The player places ships and fires on the AI grid, which uses algorithms to effectively target ships.</point>
+          <point>In local multiplayer mode, ships are placed randomly to avoid giving away positions.</point>
+        </description>
+      </projet>
+
+      <!-- Project 2 -->
+      <projet>
+        <titre>Mini Train Simulator</titre>
+        <categorie>ACADEMIC PROJECT</categorie>
+        <technos>
+          <techno>HTML</techno>
+          <techno>CSS</techno>
+          <techno>JavaScript</techno>
+        </technos>
+        <image src="ressources/projets/train.png" alt="Train Simulator" />
+        <description>
+          <point>Developed a 2D train simulator where trains move along tracks on a board.</point>
+          <point>Implemented rules to prevent trains from leaving the board or using incompatible tiles.</point>
+          <point>Enabled users to add trains, edit the board in real time, and watch train behavior live.</point>
+        </description>
+      </projet>
+
+      <!-- Project 3 -->
+      <projet>
+        <titre>Portfolio Website</titre>
+        <categorie>PERSONAL PROJECT</categorie>
+        <technos>
+          <techno>HTML</techno>
+          <techno>CSS</techno>
+          <techno>JavaScript</techno>
+        </technos>
+        <image src="ressources/projets/portfolio.png" alt="Portfolio Website" />
+        <description>
+          <point>Designed and developed a personal portfolio website to showcase projects and skills.</point>
+          <point>Implemented a responsive design to ensure optimal viewing on all devices.</point>
+          <point>Used JavaScript to create interactive features and enhance user experience.</point>
+        </description>
+      </projet>
+
+      <!-- Project 4 -->
+      <projet>
+        <titre>Logistics Center Placement</titre>
+        <categorie>ACADEMIC PROJECT</categorie>
+        <technos>
+          <techno>Operations Research</techno>
+          <techno>ILP</techno>
+          <techno>Metaheuristics</techno>
+        </technos>
+        <description>
+          <point>Studied a combinatorial optimization problem to place logistics centers optimally in a country.</point>
+          <point>Applied concepts from linear and combinatorial optimization.</point>
+          <point>Modeled the problem with ILP and developed greedy and metaheuristic methods.</point>
+          <point>Compared methods by quality and computation time to recommend the best solution.</point>
+        </description>
+      </projet>
+
+    </section>
+  </main>
+
+  <footer>
+    <copyright>© 2025 Catherine CALI – All rights reserved.</copyright>
+  </footer>
+</page>

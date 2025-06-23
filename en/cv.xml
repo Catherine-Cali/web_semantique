@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="cv" lang="en">
+  <header>
+    <nav>
+      <logo img="ressources/en_flag.png" alt="Logo" />
+      <menu>
+        <item id="accueil">Home</item>
+        <item id="cv">Resume</item>
+        <item id="projets">Projects</item>
+        <lang code="fr" icon="ressources/fr_flag.png" />
+        <lang code="en" icon="ressources/en_flag.png" />
+        <lang code="ko" icon="ressources/ko_flag.png" />
+      </menu>
+      <themeToggle id="toggle-theme" icon="ressources/en_flag.png">Mode</themeToggle>
+    </nav>
+  </header>
+
+  <main>
+    <section id="profil">
+      <title>Profile</title>
+      <text>
+Motivated student currently working as a Data Engineer apprentice at the French Ministry of the Armed Forces.
+Experience in development, data processing, project management, and visualization with Qlik Sense.
+      </text>
+    </section>
+
+    <section id="experiences">
+      <title>Professional Experience</title>
+
+      <experience>
+        <poste>Data Engineer</poste>
+        <employeur>Ministry of the Armed Forces</employeur>
+        <lieu>Kremlin-Bicêtre, France</lieu>
+        <periode>October 2023 – Present</periode>
+        <missions>
+          <mission>Standardized enterprise architecture tools.</mission>
+          <mission>Implemented a data pipeline to Qlik Sense.</mission>
+          <mission>Developed interactive dashboards for over 250 systems.</mission>
+        </missions>
+      </experience>
+
+      <experience>
+        <poste>Freelance Artisan</poste>
+        <employeur>Cathie’s Studio</employeur>
+        <lieu>Paris</lieu>
+        <periode>August 2022 – September 2023</periode>
+        <missions>
+          <mission>Designed and sold handmade candles.</mission>
+          <mission>Managed the website and customer orders.</mission>
+        </missions>
+      </experience>
+
+      <experience>
+        <poste>Private Tutor</poste>
+        <lieu>Paris</lieu>
+        <periode>September 2020 – November 2023</periode>
+        <missions>
+          <mission>Homework help for elementary school students.</mission>
+          <mission>Created customized educational content.</mission>
+        </missions>
+      </experience>
+    </section>
+
+    <section id="formation">
+      <title>Education</title>
+
+      <diplome>
+        <etablissement>SUP Galilée, Sorbonne Paris Nord</etablissement>
+        <intitule>Master’s degree in Computer Engineering</intitule>
+        <periode>2022 – 2026</periode>
+      </diplome>
+
+      <diplome>
+        <etablissement>Polytech Sorbonne</etablissement>
+        <intitule>Integrated Preparatory Program (Science)</intitule>
+        <periode>2020 – 2022</periode>
+      </diplome>
+
+      <diplome>
+        <etablissement>Lycée René Cassin</etablissement>
+        <intitule>Scientific Baccalaureate, Honors</intitule>
+        <periode>2017 – 2020</periode>
+      </diplome>
+    </section>
+
+    <section id="competences">
+      <title>Technical Skills</title>
+      <list>
+        <item>Languages: Python, C, JavaScript, HTML/CSS, Java</item>
+        <item>Frameworks: React, Next.js, Tailwind CSS</item>
+        <item>Data: SQL, Qlik Sense, ETL</item>
+        <item>Tools: Tuleap, GitHub, REST API, UX/UI</item>
+      </list>
+    </section>
+
+    <section id="langues">
+      <title>Languages</title>
+      <list>
+        <item>French: Native</item>
+        <item>English: Fluent (TOEIC: 975/990)</item>
+        <item>Turkish: Fluent</item>
+      </list>
+    </section>
+
+    <section id="loisirs">
+      <title>Interests</title>
+      <list>
+        <item>Running, hiking, bivouacking</item>
+        <item>Travel, cultures, languages</item>
+        <item>Reading, photography, video creation</item>
+      </list>
+    </section>
+  </main>
+
+  <footer>
+    <contact>Email: catherinecalipro@gmail.com</contact>
+    <contact>LinkedIn: https://linkedin.com/in/catherine-cali</contact>
+    <contact>GitHub: https://github.com/Catherine-Cali</contact>
+    <copyright>© 2025 Catherine CALI – All rights reserved.</copyright>
+  </footer>
+</page>

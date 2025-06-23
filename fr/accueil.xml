@@ -2,8 +2,6 @@
 <?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
 <page id="accueil" lang="fr">
   <header>
-    <title>Bienvenue sur mon portfolio </title>
-    <subtitle>Actuellement étudiant en Master 1 d'ingénierie informatique</subtitle>
     <nav>
     <logo img="ressources/fr_flag.png" alt="Logo" />
     <menu>
@@ -16,22 +14,28 @@
     </menu>
     <themeToggle id="toggle-theme" icon="ressources/fr_flag.png">Mode</themeToggle>
     </nav>
-
   </header>
 
   <main>
     <section id="a-propos">
       <title>À propos</title>
       <text>
-        Actuellement étudiant en Master 1 d'ingénierie informatique à Sup Galilée, je poursuis une formation complète...
-      </text>
-      <photo src="ressources/fr_flag.png" alt="Photo de profil" />
+  Bonjour ! 
+  Je m'appelle Catherine Sidar CALI, je suis actuellement étudiante en 2ème année d'ingénierie informatique en apprentissage 
+  et je fais ce portfolio dans le cadre de mon projet de web sémantique pour montrer mes compétences techniques.
+  Je suis en apprentissage au sein du Ministère des Armées en tant qu'ingénieur des données.
+  J'ai beaucoup de centres d'intérêts différents, j'aime énormement la lecture, la randonnée, la nature, les fleurs, courir et je suis une Swiftie. 
+  J'aime aussi faire des petits projets sympa.
+
+
+        </text>
+      <photo src="ressources/profilepic.png" alt="Photo de profil" />
     </section>
 
     <section id="video">
       <title>Présentation vidéo</title>
       <subtitle>Découvrez mon parcours et mes projets en vidéo</subtitle>
-      <video platform="youtube" src="https://www.youtube.com/embed/o8NPllzkFhE" />
+      <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
     </section>
   </main>
 
