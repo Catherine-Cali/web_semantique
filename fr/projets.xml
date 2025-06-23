@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<page id="projets" lang="fr">
+<page id="projets" lang="fr"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="portfolio.xsd">
   <header>
     <nav>
       <logo img="ressources/fr_flag.png" alt="Logo" />

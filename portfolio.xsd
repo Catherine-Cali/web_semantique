@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <!-- Page -->
+  <xs:element name="page">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="HeaderType"/>
+        <xs:element name="main" type="MainType"/>
+        <xs:element name="footer" type="FooterType"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="lang" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Header -->
+  <xs:complexType name="HeaderType">
+    <xs:sequence>
+      <xs:element name="nav" type="NavType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Navigation -->
+  <xs:complexType name="NavType">
+    <xs:sequence>
+      <xs:element name="logo" type="ImageType"/>
+      <xs:element name="menu" type="MenuType"/>
+      <xs:element name="themeToggle" type="ThemeToggleType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Logo / Photo -->
+  <xs:complexType name="ImageType">
+    <xs:attribute name="img" type="xs:string" use="required"/>
+    <xs:attribute name="alt" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Menu -->
+  <xs:complexType name="MenuType">
+    <xs:sequence>
+      <xs:element name="item" type="MenuItemType" maxOccurs="unbounded"/>
+      <xs:element name="lang" type="LangType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MenuItemType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Language switch -->
+  <xs:complexType name="LangType">
+    <xs:attribute name="code" type="xs:string" use="required"/>
+    <xs:attribute name="icon" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Toggle Theme -->
+  <xs:complexType name="ThemeToggleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="icon" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Main -->
+  <xs:complexType name="MainType">
+    <xs:sequence>
+      <xs:element name="section" type="SectionType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Section -->
+  <xs:complexType name="SectionType">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="title" type="xs:string"/>
+        <xs:element name="subtitle" type="xs:string"/>
+        <xs:element name="text" type="xs:string"/>
+        <xs:element name="photo" type="PhotoType"/>
+        <xs:element name="video" type="VideoType"/>
+        <xs:element name="experience" type="ExperienceType" maxOccurs="unbounded"/>
+        <xs:element name="diplome" type="DiplomeType" maxOccurs="unbounded"/>
+        <xs:element name="list" type="ListType"/>
+        <xs:element name="projet" type="ProjetType" maxOccurs="unbounded"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Photo -->
+  <xs:complexType name="PhotoType">
+    <xs:attribute name="src" type="xs:string" use="required"/>
+    <xs:attribute name="alt" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Video -->
+  <xs:complexType name="VideoType">
+    <xs:attribute name="platform" type="xs:string" use="required"/>
+    <xs:attribute name="src" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Experience -->
+  <xs:complexType name="ExperienceType">
+    <xs:sequence>
+      <xs:element name="poste" type="xs:string"/>
+      <xs:element name="employeur" type="xs:string" minOccurs="0"/>
+      <xs:element name="lieu" type="xs:string"/>
+      <xs:element name="periode" type="xs:string"/>
+      <xs:element name="missions" type="MissionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MissionsType">
+    <xs:sequence>
+      <xs:element name="mission" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Diplome -->
+  <xs:complexType name="DiplomeType">
+    <xs:sequence>
+      <xs:element name="etablissement" type="xs:string"/>
+      <xs:element name="intitule" type="xs:string"/>
+      <xs:element name="periode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- List -->
+  <xs:complexType name="ListType">
+    <xs:sequence>
+      <xs:element name="item" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Projet -->
+  <xs:complexType name="ProjetType">
+    <xs:sequence>
+      <xs:element name="titre" type="xs:string"/>
+      <xs:element name="categorie" type="xs:string"/>
+      <xs:element name="technos" type="TechnosType"/>
+      <xs:element name="image" type="PhotoType" minOccurs="0"/>
+      <xs:element name="description" type="DescriptionType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TechnosType">
+    <xs:sequence>
+      <xs:element name="techno" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DescriptionType">
+    <xs:sequence>
+      <xs:element name="point" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Footer -->
+  <xs:complexType name="FooterType">
+    <xs:sequence>
+      <xs:element name="contact" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="copyright" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
