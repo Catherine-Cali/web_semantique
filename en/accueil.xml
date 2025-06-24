@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
 <page id="accueil" lang="en"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="portfolio.xsd">
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/terms/"
+      vocab="http://xmlns.com/foaf/0.1/"
+      typeof="foaf:PersonalProfileDocument">
+
   <header>
     <nav>
       <logo img="ressources/en_flag.png" alt="Logo" />
@@ -19,27 +22,51 @@
   </header>
 
   <main>
-    <section id="a-propos">
-      <title>About Me</title>
-      <text>
-Hi there! 
-My name is Catherine Sidar CALI. I am currently a second-year computer engineering student in a work-study program, 
-and I'm building this portfolio as part of my semantic web project to showcase my technical skills.
-I am currently working at the Ministry of the Armed Forces as a data engineer.
-I have many different interests – I love reading, hiking, nature, flowers, running, and I'm a big Swiftie.
-I also enjoy creating fun little projects.
+
+    <!-- About -->
+    <section id="a-propos" typeof="foaf:Person">
+      <title property="dc:title">About</title>
+      <text property="foaf:bio">
+        Hello!  
+        My name is <span property="foaf:name">Catherine Sidar CALI</span>, I am currently a second-year computer engineering student in a work-study program,
+        and I created this portfolio as part of my semantic web project to showcase my technical skills.
+        I work at the <span property="foaf:workplaceHomepage" resource="https://www.defense.gouv.fr">Ministry of the Armed Forces</span> as a data engineer.
+        I enjoy reading, hiking, nature, flowers, running, and I am a <span property="dc:subject">Swiftie</span>.
+        I also like to build fun little projects.
       </text>
-      <photo src="ressources/profilepic.png" alt="Profile Picture" />
+      <photo property="foaf:img" src="ressources/profilepic.png"/>
     </section>
 
+    <!-- Video -->
     <section id="video">
-      <title>Video Introduction</title>
-      <subtitle>Discover my background and projects in video format</subtitle>
+      <title property="dc:title">Video Introduction</title>
+      <subtitle property="dc:description">Discover my background and projects through video</subtitle>
       <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
     </section>
+
+    <!-- Contact -->
+    <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">Contact</title>
+
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="Email"/>
+        Email
+      </link>
+
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="GitHub"/>
+        GitHub
+      </link>
+
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account" typeof="foaf:OnlineAccount">
+        <img src="ressources/icons/linkedin.png" alt="LinkedIn"/>
+        LinkedIn
+      </link>
+    </section>
+
   </main>
 
   <footer>
-    <copyright>© 2025 Catherine CALI – All rights reserved.</copyright>
+    <copyright property="dc:rights">© 2025 Catherine CALI - All rights reserved.</copyright>
   </footer>
 </page>

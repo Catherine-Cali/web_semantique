@@ -1,51 +1,71 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
 <page id="accueil" lang="fr"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="portfolio.xsd">
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/terms/"
+      vocab="http://xmlns.com/foaf/0.1/"
+      typeof="foaf:PersonalProfileDocument">
+
   <header>
     <nav>
-    <logo img="ressources/fr_flag.png" alt="Logo" />
-    <menu>
+      <logo img="ressources/fr_flag.png" alt="Logo" />
+      <menu>
         <item id="accueil">Accueil</item>
         <item id="cv">CV</item>
         <item id="projets">Projets</item>
         <lang code="fr" icon="ressources/fr_flag.png" />
         <lang code="en" icon="ressources/en_flag.png" />
         <lang code="ko" icon="ressources/ko_flag.png" />
-    </menu>
-    <themeToggle id="toggle-theme" icon="ressources/fr_flag.png">Mode</themeToggle>
+      </menu>
+      <themeToggle id="toggle-theme" icon="ressources/fr_flag.png">Mode</themeToggle>
     </nav>
   </header>
 
   <main>
-    <section id="a-propos">
-      <title>À propos</title>
-      <text>
-  Bonjour ! 
-  Je m'appelle Catherine Sidar CALI, je suis actuellement étudiante en 2ème année d'ingénierie informatique en apprentissage 
-  et je fais ce portfolio dans le cadre de mon projet de web sémantique pour montrer mes compétences techniques.
-  Je suis en apprentissage au sein du Ministère des Armées en tant qu'ingénieur des données.
-  J'ai beaucoup de centres d'intérêts différents, j'aime énormement la lecture, la randonnée, la nature, les fleurs, courir et je suis une Swiftie. 
-  J'aime aussi faire des petits projets sympa.
 
-
-        </text>
-      <photo src="ressources/profilepic.png" alt="Photo de profil" />
+    <!-- À propos -->
+    <section id="a-propos" typeof="foaf:Person">
+      <title property="dc:title">À propos</title>
+      <text property="foaf:bio">
+        Bonjour ! 
+        Je m'appelle <span property="foaf:name">Catherine Sidar CALI</span>, je suis actuellement étudiante en 2ème année d'ingénierie informatique en apprentissage,
+        et je fais ce portfolio dans le cadre de mon projet de web sémantique pour montrer mes compétences techniques.
+        Je suis en apprentissage au sein du <span property="foaf:workplaceHomepage" resource="https://www.defense.gouv.fr">Ministère des Armées</span> en tant qu'ingénieur des données.
+        J'aime la lecture, la randonnée, la nature, les fleurs, courir et je suis une <span property="dc:subject">Swiftie</span>.
+        J'aime aussi faire des petits projets sympa.
+      </text>
+      <photo property="foaf:img" src="ressources/profilepic.png" />
     </section>
 
+    <!-- Vidéo -->
     <section id="video">
-      <title>Présentation vidéo</title>
-      <subtitle>Découvrez mon parcours et mes projets en vidéo</subtitle>
+      <title property="dc:title">Présentation vidéo</title>
+      <subtitle property="dc:description">Découvrez mon parcours et mes projets en vidéo</subtitle>
       <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
     </section>
+
+    <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">Contact</title>
+
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="Email"/>
+        Email
+      </link>
+
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="GitHub"/>
+        GitHub
+      </link>
+
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account">
+        <img src="ressources/icons/linkedin.png" alt="LinkedIn"/>
+        LinkedIn
+      </link>
+    </section>
+
   </main>
 
   <footer>
-    <copyright>© 2025 Catherine CALI -Tous droits réservés.</copyright>
+    <copyright property="dc:rights">© 2025 Catherine CALI - Tous droits réservés.</copyright>
   </footer>
 </page>
-
-
-
-

@@ -4,69 +4,86 @@
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
   <xsl:template match="/">
-    <html>
-      <head>
-        <title><xsl:value-of select="page/header/title"/></title>
-        <link rel="stylesheet" type="text/css" href="styles.css"/>
-      </head>
-      <body>
+  <html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    vocab="http://xmlns.com/foaf/0.1/"
+    typeof="foaf:PersonalProfileDocument"
+    lang="{/page/@lang}"
+  >
+    <head>
+      <title property="dc:title">Portfolio de Cath <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/></title>
+      <link rel="stylesheet" type="text/css" href="styles.css"/>
+    </head>
+    <body>
 
-        <!-- Menu -->
-        <nav>
-          <div class="nav-content">
-            <div class="menu">
-              <xsl:for-each select="page/header/nav/menu/item">
-                <button id="{@id}" onclick="loadXMLXSL('{/page/@lang}/{@id}.xml','portfolio.xsl','{@id}','{/page/@lang}')">
-                  <xsl:value-of select="."/>
-                </button>
-              </xsl:for-each>
-            </div>
-            <div class="lang-switch">
-              <xsl:for-each select="page/header/nav/menu/lang">
-                <img class="lang-icon">
-                  <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
-                  <xsl:attribute name="alt"><xsl:value-of select="@code"/></xsl:attribute>
-                  <xsl:attribute name="onclick">
-                    <xsl:text>loadXMLXSL('</xsl:text>
-                    <xsl:value-of select="@code"/>
-                    <xsl:text>/</xsl:text>
-                    <xsl:value-of select="/page/@id"/>
-                    <xsl:text>.xml','portfolio.xsl','</xsl:text>
-                    <xsl:value-of select="/page/@id"/>
-                    <xsl:text>','</xsl:text>
-                    <xsl:value-of select="@code"/>
-                    <xsl:text>')</xsl:text>
-                  </xsl:attribute>
-                </img>
-              </xsl:for-each>
-            </div>
-          </div>
-        </nav>
+    <nav>
+  <div class="nav-content">
+    <div class="menu">
+      <xsl:for-each select="page/header/nav/menu/item">
+        <button id="{@id}" onclick="loadXMLXSL('{/page/@lang}/{@id}.xml','portfolio.xsl','{@id}','{/page/@lang}')">
+          <xsl:value-of select="."/>
+        </button>
+      </xsl:for-each>
+    </div>
 
-        <xsl:choose>
+    <div class="lang-switch">
+      <xsl:for-each select="page/header/nav/menu/lang">
+        <img class="lang-icon">
+          <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
+          <xsl:attribute name="alt"><xsl:value-of select="@code"/></xsl:attribute>
+          <xsl:attribute name="onclick">
+            <xsl:text>loadXMLXSL('</xsl:text>
+            <xsl:value-of select="@code"/>
+            <xsl:text>/</xsl:text>
+            <xsl:value-of select="/page/@id"/>
+            <xsl:text>.xml','portfolio.xsl','</xsl:text>
+            <xsl:value-of select="/page/@id"/>
+            <xsl:text>','</xsl:text>
+            <xsl:value-of select="@code"/>
+            <xsl:text>')</xsl:text>
+          </xsl:attribute>
+        </img>
+      </xsl:for-each>
+    </div>
+  </div>
+</nav>
 
-          <!-- Accueil -->
-          <xsl:when test="/page/@id = 'accueil'">
-            <section id="a-propos">
-              <h2><xsl:value-of select="page/main/section[@id='a-propos']/title"/></h2>
-              <p><xsl:value-of select="page/main/section[@id='a-propos']/text"/></p>
-              <img>
-                <xsl:attribute name="src"><xsl:value-of select="page/main/section[@id='a-propos']/photo/@src"/></xsl:attribute>
-                <xsl:attribute name="alt"><xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/></xsl:attribute>
-                <xsl:attribute name="width">200</xsl:attribute>
-              </img>
-            </section>
+      <!-- Exemple RDFa sur la page d'accueil -->
+      <xsl:choose>
+        <xsl:when test="/page/@id = 'accueil'">
+          <section id="a-propos" typeof="foaf:Person" resource="#me">
+            <h2 property="dc:title"><xsl:value-of select="page/main/section[@id='a-propos']/title"/></h2>
+            <p property="foaf:description">
+              <xsl:value-of select="page/main/section[@id='a-propos']/text"/>
+            </p>
+            <img property="foaf:img">
+              <xsl:attribute name="src">
+                <xsl:value-of select="page/main/section[@id='a-propos']/photo/@src"/>
+              </xsl:attribute>
+              <xsl:attribute name="alt">
+                <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/>
+              </xsl:attribute>
+              <xsl:attribute name="width">200</xsl:attribute>
+            </img>
+            <span property="foaf:name">
+              <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/>
+            </span>
+          </section>
 
-            <section id="video">
-              <h2><xsl:value-of select="page/main/section[@id='video']/title"/></h2>
-              <p><xsl:value-of select="page/main/section[@id='video']/subtitle"/></p>
-              <iframe width="560" height="315">
-                <xsl:attribute name="src"><xsl:value-of select="page/main/section[@id='video']/video/@src"/></xsl:attribute>
-                <xsl:attribute name="frameborder">0</xsl:attribute>
-                <xsl:attribute name="allowfullscreen">true</xsl:attribute>
-              </iframe>
-            </section>
-          </xsl:when>
+          <section id="video">
+            <h2><xsl:value-of select="page/main/section[@id='video']/title"/></h2>
+            <p><xsl:value-of select="page/main/section[@id='video']/subtitle"/></p>
+            <iframe width="560" height="315">
+              <xsl:attribute name="src"><xsl:value-of select="page/main/section[@id='video']/video/@src"/></xsl:attribute>
+              <xsl:attribute name="frameborder">0</xsl:attribute>
+              <xsl:attribute name="allowfullscreen">true</xsl:attribute>
+            </iframe>
+          </section>
+        </xsl:when>
+
 
           <!-- Projets -->
           <xsl:when test="/page/@id = 'projets'">
@@ -174,6 +191,37 @@
 
           </xsl:otherwise>
         </xsl:choose>
+
+        <!-- Section Contact (commune à toutes les pages) -->
+<xsl:if test="page/main/section[@id='contact']">
+  <section id="contact" typeof="foaf:Person">
+    <h2 property="dc:title">
+      <xsl:value-of select="page/main/section[@id='contact']/title"/>
+    </h2>
+
+    <div class="contact-links">
+      <xsl:for-each select="page/main/section[@id='contact']/link">
+        <a class="contact-link" target="_blank">
+          <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
+          <xsl:if test="@rel">
+            <xsl:attribute name="rel"><xsl:value-of select="@rel"/></xsl:attribute>
+          </xsl:if>
+          <xsl:if test="@typeof">
+            <xsl:attribute name="typeof"><xsl:value-of select="@typeof"/></xsl:attribute>
+          </xsl:if>
+
+          <img>
+            <xsl:attribute name="src"><xsl:value-of select="img/@src"/></xsl:attribute>
+            <xsl:attribute name="alt"><xsl:value-of select="img/@alt"/></xsl:attribute>
+          </img>
+          <span><xsl:value-of select="."/></span>
+        </a>
+      </xsl:for-each>
+    </div>
+  </section>
+</xsl:if>
+
+
 
         <!-- Footer -->
         <footer>
