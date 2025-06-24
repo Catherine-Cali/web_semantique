@@ -4,95 +4,88 @@
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
   <xsl:template match="/">
-  <html
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    xmlns:dc="http://purl.org/dc/terms/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    vocab="http://xmlns.com/foaf/0.1/"
-    typeof="foaf:PersonalProfileDocument"
-    lang="{/page/@lang}"
-  >
-    <head>
-      <title property="dc:title">Portfolio de Cath <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/></title>
-      <link rel="stylesheet" type="text/css" href="styles.css"/>
-    </head>
-    <body>
+    <xsl:variable name="lang" select="page/@lang"/>
+    <xsl:variable name="pageId" select="page/@id"/>
+    <html
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      vocab="http://xmlns.com/foaf/0.1/"
+      typeof="foaf:PersonalProfileDocument"
+      lang="{$lang}"
+    >
+      <head>
+        <title property="dc:title">Portfolio de Cath <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/></title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+      </head>
+      <body>
 
-    <nav>
-  <div class="nav-content">
-    <div class="menu">
-      <xsl:for-each select="page/header/nav/menu/item">
-        <button id="{@id}" onclick="loadXMLXSL('{/page/@lang}/{@id}.xml','portfolio.xsl','{@id}','{/page/@lang}')">
-          <xsl:value-of select="."/>
-        </button>
-      </xsl:for-each>
-    </div>
+        <!-- Barre de navigation -->
+        <nav>
+          <div class="nav-content">
+            <div class="menu">
+              <xsl:for-each select="page/header/nav/menu/item">
+                <button id="{@id}" onclick="loadXMLXSL('{$lang}/{@id}.xml','portfolio.xsl','{@id}','{$lang}')">
+                  <xsl:value-of select="."/>
+                </button>
+              </xsl:for-each>
+            </div>
+            <div class="lang-switch">
+              <xsl:for-each select="page/header/nav/menu/lang">
+                <img class="lang-icon">
+                  <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
+                  <xsl:attribute name="alt"><xsl:value-of select="@code"/></xsl:attribute>
+                  <xsl:attribute name="onclick">
+                    <xsl:text>loadXMLXSL('</xsl:text>
+                    <xsl:value-of select="@code"/>
+                    <xsl:text>/</xsl:text>
+                    <xsl:value-of select="/page/@id"/>
+                    <xsl:text>.xml','portfolio.xsl','</xsl:text>
+                    <xsl:value-of select="/page/@id"/>
+                    <xsl:text>','</xsl:text>
+                    <xsl:value-of select="@code"/>
+                    <xsl:text>')</xsl:text>
+                  </xsl:attribute>
+                </img>
+              </xsl:for-each>
+            </div>
+          </div>
+        </nav>
 
-    <div class="lang-switch">
-      <xsl:for-each select="page/header/nav/menu/lang">
-        <img class="lang-icon">
-          <xsl:attribute name="src"><xsl:value-of select="@icon"/></xsl:attribute>
-          <xsl:attribute name="alt"><xsl:value-of select="@code"/></xsl:attribute>
-          <xsl:attribute name="onclick">
-            <xsl:text>loadXMLXSL('</xsl:text>
-            <xsl:value-of select="@code"/>
-            <xsl:text>/</xsl:text>
-            <xsl:value-of select="/page/@id"/>
-            <xsl:text>.xml','portfolio.xsl','</xsl:text>
-            <xsl:value-of select="/page/@id"/>
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="@code"/>
-            <xsl:text>')</xsl:text>
-          </xsl:attribute>
-        </img>
-      </xsl:for-each>
-    </div>
-  </div>
-</nav>
+        <!-- Contenu principal -->
+        <xsl:choose>
+          <xsl:when test="$pageId = 'accueil'">
+            <!-- SECTION A PROPOS -->
+            <section id="a-propos" typeof="foaf:Person" resource="#me">
+              <h2 property="dc:title"><xsl:value-of select="page/main/section[@id='a-propos']/title"/></h2>
+              <p property="foaf:description"><xsl:value-of select="page/main/section[@id='a-propos']/text"/></p>
+              <img property="foaf:img">
+                <xsl:attribute name="src"><xsl:value-of select="page/main/section[@id='a-propos']/photo/@src"/></xsl:attribute>
+                <xsl:attribute name="alt"><xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/></xsl:attribute>
+                <xsl:attribute name="width">200</xsl:attribute>
+              </img>
+              <span property="foaf:name"><xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/></span>
+            </section>
 
-      <!-- Exemple RDFa sur la page d'accueil -->
-      <xsl:choose>
-        <xsl:when test="/page/@id = 'accueil'">
-          <section id="a-propos" typeof="foaf:Person" resource="#me">
-            <h2 property="dc:title"><xsl:value-of select="page/main/section[@id='a-propos']/title"/></h2>
-            <p property="foaf:description">
-              <xsl:value-of select="page/main/section[@id='a-propos']/text"/>
-            </p>
-            <img property="foaf:img">
-              <xsl:attribute name="src">
-                <xsl:value-of select="page/main/section[@id='a-propos']/photo/@src"/>
-              </xsl:attribute>
-              <xsl:attribute name="alt">
-                <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/>
-              </xsl:attribute>
-              <xsl:attribute name="width">200</xsl:attribute>
-            </img>
-            <span property="foaf:name">
-              <xsl:value-of select="page/main/section[@id='a-propos']/photo/@alt"/>
-            </span>
-          </section>
+            <!-- VIDEO -->
+            <section id="video">
+              <h2><xsl:value-of select="page/main/section[@id='video']/title"/></h2>
+              <p><xsl:value-of select="page/main/section[@id='video']/subtitle"/></p>
+              <iframe width="560" height="315">
+                <xsl:attribute name="src"><xsl:value-of select="page/main/section[@id='video']/video/@src"/></xsl:attribute>
+                <xsl:attribute name="frameborder">0</xsl:attribute>
+                <xsl:attribute name="allowfullscreen">true</xsl:attribute>
+              </iframe>
+            </section>
+          </xsl:when>
 
-          <section id="video">
-            <h2><xsl:value-of select="page/main/section[@id='video']/title"/></h2>
-            <p><xsl:value-of select="page/main/section[@id='video']/subtitle"/></p>
-            <iframe width="560" height="315">
-              <xsl:attribute name="src"><xsl:value-of select="page/main/section[@id='video']/video/@src"/></xsl:attribute>
-              <xsl:attribute name="frameborder">0</xsl:attribute>
-              <xsl:attribute name="allowfullscreen">true</xsl:attribute>
-            </iframe>
-          </section>
-        </xsl:when>
-
-
-          <!-- Projets -->
-          <xsl:when test="/page/@id = 'projets'">
+          <xsl:when test="$pageId = 'projets'">
             <section id="projets">
               <xsl:for-each select="page/main/section[@id='projets']/projet">
                 <div class="card">
                   <h2><xsl:value-of select="titre"/></h2>
                   <h4 style="color: gray;"><xsl:value-of select="categorie"/></h4>
-
                   <div>
                     <xsl:for-each select="technos/techno">
                       <span style="display: inline-block; background-color: #eee; padding: 5px 10px; margin: 2px; border-radius: 10px; font-family: monospace;">
@@ -100,7 +93,6 @@
                       </span>
                     </xsl:for-each>
                   </div>
-
                   <xsl:if test="image">
                     <img>
                       <xsl:attribute name="src"><xsl:value-of select="image/@src"/></xsl:attribute>
@@ -108,7 +100,6 @@
                       <xsl:attribute name="style">max-width: 100%; margin-top: 15px; border-radius: 8px;</xsl:attribute>
                     </img>
                   </xsl:if>
-
                   <ul>
                     <xsl:for-each select="description/point">
                       <li><xsl:value-of select="."/></li>
@@ -119,109 +110,101 @@
             </section>
           </xsl:when>
 
-          <!-- CV et autres sections -->
           <xsl:otherwise>
-
-            <section id="profil">
-              <div class="card">
-                <h3><xsl:value-of select="page/main/section[@id='profil']/title"/></h3>
-                <p><xsl:value-of select="page/main/section[@id='profil']/text"/></p>
-              </div>
-            </section>
-
+            <xsl:variable name="exp" select="page/main/section[@id='experiences']"/>
             <section id="experiences">
-              <h2><xsl:value-of select="page/main/section[@id='experiences']/title"/></h2>
-              <xsl:for-each select="page/main/section[@id='experiences']/experience">
-                <div class="card">
-                  <h3><xsl:value-of select="poste"/></h3>
-                  <p><strong><xsl:value-of select="employeur"/></strong> — <xsl:value-of select="lieu"/></p>
-                  <p><em><xsl:value-of select="periode"/></em></p>
+              <h2><xsl:value-of select="$exp/title"/></h2>
+              <xsl:for-each select="$exp/experience">
+                <div class="card" typeof="foaf:Organization">
+                  <h3 property="dc:title"><xsl:value-of select="poste"/></h3>
+                  <p>
+                    <strong property="foaf:name"><xsl:value-of select="employeur"/></strong> — 
+                    <span property="foaf:based_near"><xsl:value-of select="lieu"/></span>
+                  </p>
+                  <p><em property="dc:date"><xsl:value-of select="periode"/></em></p>
                   <ul>
                     <xsl:for-each select="missions/mission">
-                      <li><xsl:value-of select="."/></li>
+                      <li property="dc:description"><xsl:value-of select="."/></li>
                     </xsl:for-each>
                   </ul>
                 </div>
               </xsl:for-each>
             </section>
 
-            <section id="formation">
-              <h2><xsl:value-of select="page/main/section[@id='formation']/title"/></h2>
-              <xsl:for-each select="page/main/section[@id='formation']/diplome">
-                <div class="card">
-                  <h3><xsl:value-of select="intitule"/></h3>
-                  <p><xsl:value-of select="etablissement"/></p>
-                  <p><em><xsl:value-of select="periode"/></em></p>
+            <xsl:for-each select="page/main/section[@id='formation']">
+              <section id="formation">
+                <h2><xsl:value-of select="title"/></h2>
+                <xsl:for-each select="diplome">
+                  <div class="card" typeof="schema:EducationalOccupationalProgram" resource="#edu{position()}">
+                    <h3 property="schema:name"><xsl:value-of select="intitule"/></h3>
+                    <p property="schema:educationalProgram"><xsl:value-of select="etablissement"/></p>
+                    <p><em property="schema:startDate"><xsl:value-of select="periode"/></em></p>
+                  </div>
+                </xsl:for-each>
+              </section>
+            </xsl:for-each>
+
+            <xsl:for-each select="page/main/section[@id='competences']">
+              <section id="competences">
+                <div class="card" typeof="foaf:Person" resource="#me">
+                  <h2><xsl:value-of select="title"/></h2>
+                  <ul>
+                    <xsl:for-each select="list/item">
+                      <li property="schema:skills"><xsl:value-of select="."/></li>
+                    </xsl:for-each>
+                  </ul>
                 </div>
-              </xsl:for-each>
-            </section>
+              </section>
+            </xsl:for-each>
 
-            <section id="competences">
-              <div class="card">
-                <h2><xsl:value-of select="page/main/section[@id='competences']/title"/></h2>
-                <ul>
-                  <xsl:for-each select="page/main/section[@id='competences']/list/item">
-                    <li><xsl:value-of select="."/></li>
-                  </xsl:for-each>
-                </ul>
-              </div>
-            </section>
+            <xsl:for-each select="page/main/section[@id='langues']">
+              <section id="langues">
+                <div class="card" typeof="foaf:Person" resource="#me">
+                  <h2><xsl:value-of select="title"/></h2>
+                  <ul>
+                    <xsl:for-each select="list/item">
+                      <li property="schema:knowsLanguage"><xsl:value-of select="."/></li>
+                    </xsl:for-each>
+                  </ul>
+                </div>
+              </section>
+            </xsl:for-each>
 
-            <section id="langues">
-              <div class="card">
-                <h2><xsl:value-of select="page/main/section[@id='langues']/title"/></h2>
-                <ul>
-                  <xsl:for-each select="page/main/section[@id='langues']/list/item">
-                    <li><xsl:value-of select="."/></li>
-                  </xsl:for-each>
-                </ul>
-              </div>
-            </section>
-
-            <section id="loisirs">
-              <div class="card">
-                <h2><xsl:value-of select="page/main/section[@id='loisirs']/title"/></h2>
-                <ul>
-                  <xsl:for-each select="page/main/section[@id='loisirs']/list/item">
-                    <li><xsl:value-of select="."/></li>
-                  </xsl:for-each>
-                </ul>
-              </div>
-            </section>
-
+            <xsl:for-each select="page/main/section[@id='loisirs']">
+              <section id="loisirs">
+                <div class="card" typeof="foaf:Person" resource="#me">
+                  <h2><xsl:value-of select="title"/></h2>
+                  <ul>
+                    <xsl:for-each select="list/item">
+                      <li property="schema:interest"><xsl:value-of select="."/></li>
+                    </xsl:for-each>
+                  </ul>
+                </div>
+              </section>
+            </xsl:for-each>
           </xsl:otherwise>
         </xsl:choose>
 
-        <!-- Section Contact (commune à toutes les pages) -->
-<xsl:if test="page/main/section[@id='contact']">
-  <section id="contact" typeof="foaf:Person">
-    <h2 property="dc:title">
-      <xsl:value-of select="page/main/section[@id='contact']/title"/>
-    </h2>
-
-    <div class="contact-links">
-      <xsl:for-each select="page/main/section[@id='contact']/link">
-        <a class="contact-link" target="_blank">
-          <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
-          <xsl:if test="@rel">
-            <xsl:attribute name="rel"><xsl:value-of select="@rel"/></xsl:attribute>
-          </xsl:if>
-          <xsl:if test="@typeof">
-            <xsl:attribute name="typeof"><xsl:value-of select="@typeof"/></xsl:attribute>
-          </xsl:if>
-
-          <img>
-            <xsl:attribute name="src"><xsl:value-of select="img/@src"/></xsl:attribute>
-            <xsl:attribute name="alt"><xsl:value-of select="img/@alt"/></xsl:attribute>
-          </img>
-          <span><xsl:value-of select="."/></span>
-        </a>
-      </xsl:for-each>
-    </div>
-  </section>
-</xsl:if>
-
-
+        <!-- Section Contact -->
+        <xsl:if test="page/main/section[@id='contact']">
+          <section id="contact" typeof="foaf:Person" resource="#me">
+            <h2 property="dc:title"><xsl:value-of select="page/main/section[@id='contact']/title"/></h2>
+            <div class="contact-links">
+              <xsl:for-each select="page/main/section[@id='contact']/link">
+                <a class="contact-link" target="_blank">
+                  <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
+                  <xsl:if test="@rel"><xsl:attribute name="rel"><xsl:value-of select="@rel"/></xsl:attribute></xsl:if>
+                  <xsl:if test="@typeof"><xsl:attribute name="typeof"><xsl:value-of select="@typeof"/></xsl:attribute></xsl:if>
+                  <img>
+                    <xsl:attribute name="src"><xsl:value-of select="img/@src"/></xsl:attribute>
+                    <xsl:attribute name="alt"><xsl:value-of select="img/@alt"/></xsl:attribute>
+                  </img>
+                  <span><xsl:value-of select="."/></span>
+                </a>
+              </xsl:for-each>
+            </div>
+          </section>
+        </xsl:if>
 
         <!-- Footer -->
         <footer>
@@ -231,7 +214,6 @@
             </xsl:if>
           </p>
         </footer>
-
       </body>
     </html>
   </xsl:template>
