@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
 <page id="cv" lang="en"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="portfolio.xsd">
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:schema="http://schema.org/"
+      vocab="http://schema.org/"
+      typeof="foaf:PersonalProfileDocument">
+
   <header>
     <nav>
       <logo img="ressources/en_flag.png" alt="Logo" />
@@ -13,111 +18,129 @@
         <lang code="en" icon="ressources/en_flag.png" />
         <lang code="ko" icon="ressources/ko_flag.png" />
       </menu>
-      <themeToggle id="toggle-theme" icon="ressources/en_flag.png">Mode</themeToggle>
+      <themeToggle id="toggle-theme" icon="ressources/en_flag.png">Theme</themeToggle>
     </nav>
   </header>
 
   <main>
-    <section id="profil">
-      <title>Profile</title>
-      <text>
-Motivated student currently working as a Data Engineer apprentice at the French Ministry of the Armed Forces.
-Experience in development, data processing, project management, and visualization with Qlik Sense.
+
+    <section id="profil" typeof="foaf:Person">
+      <title property="dc:title">Profile</title>
+      <text property="foaf:workInfoNote">
+        Motivated student, currently a work-study Data Engineer at the French Ministry of Armed Forces. Experience in development, data processing, project management, and dashboarding with Qlik Sense.
       </text>
     </section>
 
     <section id="experiences">
-      <title>Professional Experience</title>
+      <title property="dc:title">Professional Experience</title>
 
-      <experience>
-        <poste>Data Engineer</poste>
-        <employeur>Ministry of the Armed Forces</employeur>
-        <lieu>Kremlin-Bicêtre, France</lieu>
-        <periode>October 2023 – Present</periode>
+      <experience typeof="schema:WorkExperience" resource="#exp0">
+        <poste property="schema:roleName">Data Engineer</poste>
+        <employeur property="schema:worksFor">Ministry of Armed Forces</employeur>
+        <lieu>France</lieu>
+        <periode property="schema:startDate">2023-10</periode>
         <missions>
-          <mission>Standardized enterprise architecture tools.</mission>
-          <mission>Implemented a data pipeline to Qlik Sense.</mission>
-          <mission>Developed interactive dashboards for over 250 systems.</mission>
+          <mission property="schema:description">Standardization of enterprise architecture tools.</mission>
+          <mission property="schema:description">Implementation of a data pipeline to Qlik Sense.</mission>
+          <mission property="schema:description">Development of interactive dashboards for 250+ systems.</mission>
         </missions>
       </experience>
 
-      <experience>
-        <poste>Freelance Artisan</poste>
-        <employeur>Cathie’s Studio</employeur>
+      <experience typeof="schema:WorkExperience" resource="#exp1">
+        <poste property="schema:roleName">Freelance Artisan</poste>
+        <employeur property="schema:worksFor">Cathie’s Studio</employeur>
         <lieu>Paris</lieu>
-        <periode>August 2022 – September 2023</periode>
+        <periode property="schema:startDate">2022-08</periode>
         <missions>
-          <mission>Designed and sold handmade candles.</mission>
-          <mission>Managed the website and customer orders.</mission>
+          <mission property="schema:description">Created and sold handmade candles.</mission>
+          <mission property="schema:description">Managed website and customer orders.</mission>
         </missions>
       </experience>
 
-      <experience>
-        <poste>Private Tutor</poste>
+      <experience typeof="schema:WorkExperience" resource="#exp2">
+        <poste property="schema:roleName">Private Tutor</poste>
         <lieu>Paris</lieu>
-        <periode>September 2020 – November 2023</periode>
+        <periode property="schema:startDate">2020-09</periode>
         <missions>
-          <mission>Homework help for elementary school students.</mission>
-          <mission>Created customized educational content.</mission>
+          <mission property="schema:description">Homework support for elementary school students.</mission>
+          <mission property="schema:description">Designed tailored educational materials.</mission>
         </missions>
       </experience>
     </section>
 
     <section id="formation">
-      <title>Education</title>
+      <title property="dc:title">Education</title>
 
-      <diplome>
-        <etablissement>SUP Galilée, Sorbonne Paris Nord</etablissement>
-        <intitule>Master’s degree in Computer Engineering</intitule>
-        <periode>2022 – 2026</periode>
+      <diplome typeof="schema:EducationalOccupationalProgram" resource="#edu0">
+        <etablissement property="schema:educationalProgram">SUP Galilée</etablissement>
+        <intitule property="schema:name">Engineering degree in Computer Science</intitule>
+        <periode property="schema:startDate">2022</periode>
       </diplome>
 
-      <diplome>
+      <diplome typeof="schema:EducationalOccupationalProgram" resource="#edu1">
         <etablissement>Polytech Sorbonne</etablissement>
-        <intitule>Integrated Preparatory Program (Science)</intitule>
-        <periode>2020 – 2022</periode>
+        <intitule property="schema:name">Integrated Preparatory Class (Science Track)</intitule>
+        <periode property="schema:startDate">2020</periode>
       </diplome>
 
-      <diplome>
+      <diplome typeof="schema:EducationalOccupationalProgram" resource="#edu2">
         <etablissement>Lycée René Cassin</etablissement>
-        <intitule>Scientific Baccalaureate, Honors</intitule>
-        <periode>2017 – 2020</periode>
+        <intitule property="schema:name">Scientific Baccalauréat</intitule>
+        <periode property="schema:startDate">2017</periode>
       </diplome>
     </section>
 
-    <section id="competences">
-      <title>Technical Skills</title>
+    <section id="competences" typeof="foaf:Person">
+      <title property="dc:title">Technical Skills</title>
       <list>
-        <item>Languages: Python, C, JavaScript, HTML/CSS, Java</item>
-        <item>Frameworks: React, Next.js, Tailwind CSS</item>
-        <item>Data: SQL, Qlik Sense, ETL</item>
-        <item>Tools: Tuleap, GitHub, REST API, UX/UI</item>
+        <item property="schema:skills">Python, C, JavaScript, HTML/CSS, Java</item>
+        <item property="schema:skills">React, Next.js, Tailwind CSS</item>
+        <item property="schema:skills">SQL, Qlik Sense, ETL</item>
+        <item property="schema:skills">Tuleap, GitHub, REST API, UX/UI</item>
       </list>
     </section>
 
     <section id="langues">
-      <title>Languages</title>
+      <title property="dc:title">Languages</title>
       <list>
-        <item>French: Native</item>
-        <item>English: Fluent (TOEIC: 975/990)</item>
-        <item>Turkish: Fluent</item>
+        <item property="schema:knowsLanguage">French (Native)</item>
+        <item property="schema:knowsLanguage">English (TOEIC 975/990)</item>
+        <item property="schema:knowsLanguage">Turkish (Fluent)</item>
       </list>
     </section>
 
     <section id="loisirs">
-      <title>Interests</title>
+      <title property="dc:title">Interests</title>
       <list>
-        <item>Running, hiking, bivouacking</item>
-        <item>Travel, cultures, languages</item>
-        <item>Reading, photography, video creation</item>
+        <item property="schema:interest">Running, hiking, bivouacking</item>
+        <item property="schema:interest">Travel, cultures, languages</item>
+        <item property="schema:interest">Reading, photography, video creation</item>
       </list>
     </section>
+
+    <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">Contact</title>
+
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="Email"/>
+        Email
+      </link>
+
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="GitHub"/>
+        GitHub
+      </link>
+
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account">
+        <img src="ressources/icons/linkedin.png" alt="LinkedIn"/>
+        LinkedIn
+      </link>
+    </section>
+
   </main>
 
   <footer>
-    <contact>Email: catherinecalipro@gmail.com</contact>
-    <contact>LinkedIn: https://linkedin.com/in/catherine-cali</contact>
-    <contact>GitHub: https://github.com/Catherine-Cali</contact>
-    <copyright>© 2025 Catherine CALI – All rights reserved.</copyright>
+    <copyright property="dc:rights">© 2025 Catherine CALI – All rights reserved.</copyright>
   </footer>
+
 </page>

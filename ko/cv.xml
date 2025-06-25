@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../portfolio.xsl"?>
 <page id="cv" lang="ko"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="portfolio.xsd">
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:schema="http://schema.org/"
+      vocab="http://schema.org/"
+      typeof="foaf:PersonalProfileDocument">
+
   <header>
     <nav>
       <logo img="ressources/ko_flag.png" alt="로고" />
@@ -13,111 +18,129 @@
         <lang code="en" icon="ressources/en_flag.png" />
         <lang code="ko" icon="ressources/ko_flag.png" />
       </menu>
-      <themeToggle id="toggle-theme" icon="ressources/ko_flag.png">모드</themeToggle>
+      <themeToggle id="toggle-theme" icon="ressources/ko_flag.png">테마</themeToggle>
     </nav>
   </header>
 
   <main>
-    <section id="profil">
-      <title>프로필</title>
-      <text>
-열정적인 학생이며, 현재 프랑스 국방부에서 데이터 엔지니어로 일하고 있습니다. 
-개발, 데이터 처리, 프로젝트 관리, Qlik Sense 시각화 경험이 있습니다.
+
+    <section id="profil" typeof="foaf:Person">
+      <title property="dc:title">프로필</title>
+      <text property="foaf:workInfoNote">
+        동기 부여가 강한 학생으로, 현재 프랑스 국방부에서 데이터 엔지니어 인턴으로 근무 중입니다. 개발, 데이터 처리, 프로젝트 관리 및 Qlik Sense를 통한 시각화 경험이 있습니다.
       </text>
     </section>
 
     <section id="experiences">
-      <title>경력</title>
+      <title property="dc:title">경력</title>
 
-      <experience>
-        <poste>데이터 엔지니어</poste>
-        <employeur>프랑스 국방부</employeur>
-        <lieu>르크렘랑-비세트르, 프랑스</lieu>
-        <periode>2023년 10월 – 현재</periode>
+      <experience typeof="schema:WorkExperience" resource="#exp0">
+        <poste property="schema:roleName">데이터 엔지니어</poste>
+        <employeur property="schema:worksFor">프랑스 국방부</employeur>
+        <lieu>프랑스</lieu>
+        <periode property="schema:startDate">2023-10</periode>
         <missions>
-          <mission>기업 아키텍처 도구 표준화.</mission>
-          <mission>Qlik Sense로 데이터 파이프라인 구축.</mission>
-          <mission>250개 이상의 시스템에 대한 대시보드 개발.</mission>
+          <mission property="schema:description">엔터프라이즈 아키텍처 도구 표준화.</mission>
+          <mission property="schema:description">Qlik Sense로의 데이터 파이프라인 구현.</mission>
+          <mission property="schema:description">250개 이상의 시스템을 위한 대시보드 개발.</mission>
         </missions>
       </experience>
 
-      <experience>
-        <poste>프리랜서 아티즌</poste>
-        <employeur>Cathie’s Studio</employeur>
+      <experience typeof="schema:WorkExperience" resource="#exp1">
+        <poste property="schema:roleName">프리랜서 수공예가</poste>
+        <employeur property="schema:worksFor">Cathie’s Studio</employeur>
         <lieu>파리</lieu>
-        <periode>2022년 8월 – 2023년 9월</periode>
+        <periode property="schema:startDate">2022-08</periode>
         <missions>
-          <mission>수제 양초 제작 및 판매.</mission>
-          <mission>웹사이트 및 주문 관리.</mission>
+          <mission property="schema:description">수제 캔들 제작 및 판매.</mission>
+          <mission property="schema:description">웹사이트 및 고객 주문 관리.</mission>
         </missions>
       </experience>
 
-      <experience>
-        <poste>개인 과외 교사</poste>
+      <experience typeof="schema:WorkExperience" resource="#exp2">
+        <poste property="schema:roleName">개인 과외 교사</poste>
         <lieu>파리</lieu>
-        <periode>2020년 9월 – 2023년 11월</periode>
+        <periode property="schema:startDate">2020-09</periode>
         <missions>
-          <mission>초등학생 숙제 지도.</mission>
-          <mission>맞춤형 교육 콘텐츠 제작.</mission>
+          <mission property="schema:description">초등학생 대상 학습 지원.</mission>
+          <mission property="schema:description">맞춤형 교육 콘텐츠 제작.</mission>
         </missions>
       </experience>
     </section>
 
     <section id="formation">
-      <title>학력</title>
+      <title property="dc:title">학력</title>
 
-      <diplome>
-        <etablissement>SUP Galilée, Sorbonne Paris Nord</etablissement>
-        <intitule>컴퓨터 공학 공학사</intitule>
-        <periode>2022 – 2026</periode>
+      <diplome typeof="schema:EducationalOccupationalProgram" resource="#edu0">
+        <etablissement property="schema:educationalProgram">SUP 갈릴레</etablissement>
+        <intitule property="schema:name">컴퓨터 공학 학사</intitule>
+        <periode property="schema:startDate">2022</periode>
       </diplome>
 
-      <diplome>
-        <etablissement>Polytech Sorbonne</etablissement>
-        <intitule>통합 과학 예비 과정</intitule>
-        <periode>2020 – 2022</periode>
+      <diplome typeof="schema:EducationalOccupationalProgram" resource="#edu1">
+        <etablissement>폴리텍 소르본</etablissement>
+        <intitule property="schema:name">통합 예비 과정 (과학 전공)</intitule>
+        <periode property="schema:startDate">2020</periode>
       </diplome>
 
-      <diplome>
-        <etablissement>Lycée René Cassin</etablissement>
-        <intitule>과학 고등학교 졸업 (우등)</intitule>
-        <periode>2017 – 2020</periode>
+      <diplome typeof="schema:EducationalOccupationalProgram" resource="#edu2">
+        <etablissement>르네 카생 고등학교</etablissement>
+        <intitule property="schema:name">과학 계열 바칼로레아</intitule>
+        <periode property="schema:startDate">2017</periode>
       </diplome>
     </section>
 
-    <section id="competences">
-      <title>기술 스킬</title>
+    <section id="competences" typeof="foaf:Person">
+      <title property="dc:title">기술 역량</title>
       <list>
-        <item>언어: Python, C, JavaScript, HTML/CSS, Java</item>
-        <item>프레임워크: React, Next.js, Tailwind CSS</item>
-        <item>데이터: SQL, Qlik Sense, ETL</item>
-        <item>도구: Tuleap, GitHub, REST API, UX/UI</item>
+        <item property="schema:skills">Python, C, JavaScript, HTML/CSS, Java</item>
+        <item property="schema:skills">React, Next.js, Tailwind CSS</item>
+        <item property="schema:skills">SQL, Qlik Sense, ETL</item>
+        <item property="schema:skills">Tuleap, GitHub, REST API, UX/UI</item>
       </list>
     </section>
 
     <section id="langues">
-      <title>언어</title>
+      <title property="dc:title">언어</title>
       <list>
-        <item>프랑스어: 원어민</item>
-        <item>영어: 능통 (TOEIC: 975/990)</item>
-        <item>터키어: 능통</item>
+        <item property="schema:knowsLanguage">프랑스어 (모국어)</item>
+        <item property="schema:knowsLanguage">영어 (TOEIC 975/990)</item>
+        <item property="schema:knowsLanguage">터키어 (유창함)</item>
       </list>
     </section>
 
     <section id="loisirs">
-      <title>취미</title>
+      <title property="dc:title">관심사</title>
       <list>
-        <item>달리기, 하이킹, 야영</item>
-        <item>여행, 문화, 언어</item>
-        <item>독서, 사진, 영상 제작</item>
+        <item property="schema:interest">달리기, 하이킹, 야영</item>
+        <item property="schema:interest">여행, 문화, 언어</item>
+        <item property="schema:interest">독서, 사진, 영상 제작</item>
       </list>
     </section>
+
+    <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">연락처</title>
+
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="이메일"/>
+        이메일
+      </link>
+
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="GitHub"/>
+        GitHub
+      </link>
+
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account">
+        <img src="ressources/icons/linkedin.png" alt="LinkedIn"/>
+        LinkedIn
+      </link>
+    </section>
+
   </main>
 
   <footer>
-    <contact>이메일: catherinecalipro@gmail.com</contact>
-    <contact>LinkedIn: https://linkedin.com/in/catherine-cali</contact>
-    <contact>GitHub: https://github.com/Catherine-Cali</contact>
-    <copyright>© 2025 Catherine CALI – 판권 소유.</copyright>
+    <copyright property="dc:rights">© 2025 Catherine CALI – 모든 권리 보유.</copyright>
   </footer>
+
 </page>
