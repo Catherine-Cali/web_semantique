@@ -82,6 +82,8 @@
             </iframe>
           </section>
 
+        </xsl:when>
+
           <xsl:when test="$pageId = 'projets'">
             <section id="projets">
               <xsl:for-each select="page/main/section[@id='projets']/projet">
