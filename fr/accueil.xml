@@ -37,11 +37,11 @@
       <photo src="ressources/profilepic.png" alt="Portrait de Catherine Cali" />
     </section>
 
-    <section id="video">
-      <title>Présentation vidéo</title>
-      <subtitle>Découvrez mon parcours et mes projets</subtitle>
-      <embed type="video" src="https://www.youtube.com/embed/sHphc4Fy04w"/>
-    </section>
+<section id="video">
+  <title>Présentation vidéo</title>
+  <subtitle>Découvrez mon parcours et mes projets</subtitle>
+  <embed type="youtube" src="https://www.youtube.com/embed/sHphc4Fy04w"/>
+</section>
 
     <section id="contact" typeof="foaf:Person">
       <title property="dc:title">Contact</title>

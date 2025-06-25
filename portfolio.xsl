@@ -68,17 +68,26 @@
             </section>
 
  <section id="video">
-<xsl:if test="embed[@type='video']">
-  <iframe width="560" height="315"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-    <xsl:attribute name="src">
-      <xsl:value-of select="embed[@type='video']/@src"/>
-    </xsl:attribute>
-  </iframe>
-</xsl:if>
-  </section>
+    <h2>
+      <xsl:value-of select="page/main/section[@id='video']/title"/>
+    </h2>
+    <p>
+      <xsl:value-of select="page/main/section[@id='video']/subtitle"/>
+    </p>
+
+    <xsl:variable name="videoSrc" select="page/main/section[@id='video']/embed[@type='youtube']/@src"/>
+
+    <xsl:if test="$videoSrc">
+      <iframe width="560" height="315"
+              allowfullscreen="true"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        <xsl:attribute name="src">
+          <xsl:value-of select="$videoSrc"/>
+        </xsl:attribute>
+      </iframe>
+    </xsl:if>
+      </section>
 
         </xsl:when>
 
