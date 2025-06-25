@@ -40,7 +40,7 @@
     <section id="video">
       <title property="dc:title">Présentation vidéo</title>
       <subtitle property="dc:description">Découvrez mon parcours et mes projets</subtitle>
-      <video src="https://www.youtube.com/embed/abc123" />
+      <video src="https://youtu.be/sHphc4Fy04w" />
     </section>
 
     <section id="contact" typeof="foaf:Person">
