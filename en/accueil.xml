@@ -40,11 +40,12 @@
     </section>
 
     <!-- Video -->
+
     <section id="video">
-      <title property="dc:title">Video Introduction</title>
-      <subtitle property="dc:description">Discover my background and projects through video</subtitle>
-      <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
-    </section>
+  <title>Video Introduction</title>
+  <subtitle>Discover my background and projects through video</subtitle>
+  <embed type="youtube" src="https://www.youtube.com/embed/yPRmBk4o4bg"/>
+</section>
 
     <!-- Contact -->
     <section id="contact" typeof="foaf:Person">

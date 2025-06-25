@@ -39,11 +39,13 @@
     </section>
 
     <!-- 비디오 소개 -->
-    <section id="video">
-      <title property="dc:title">비디오 소개</title>
-      <subtitle property="dc:description">비디오를 통해 저의 배경과 프로젝트를 알아보세요</subtitle>
-      <video platform="youtube" src="https://www.youtube.com/embed/r63BsEuCyRE?si=yCYzYaw-RcgCfe8_" />
-    </section>
+
+        <section id="video">
+  <title>비디오 소개</title>
+  <subtitle>비디오를 통해 저의 배경과 프로젝트를 알아보세요</subtitle>
+  <embed type="youtube" src="https://www.youtube.com/embed/bCaBjfoSXno"/>
+</section>
+
 
     <!-- 연락처 -->
     <section id="contact" typeof="foaf:Person">
