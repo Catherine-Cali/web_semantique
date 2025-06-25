@@ -3,6 +3,27 @@
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 
+  <!-- === TEXTUAL ELEMENTS WITH ATTRIBUTES (RDFa support) === -->
+  <xs:complexType name="textWithAttrs" mixed="true">
+    <xs:anyAttribute processContents="lax"/>
+  </xs:complexType>
+
+  <!-- TEXT ELEMENTS THAT CAN CONTAIN <span> -->
+  <xs:complexType name="textWithSpans" mixed="true">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="span" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType mixed="true">
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:anyAttribute processContents="lax"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:anyAttribute processContents="lax"/>
+  </xs:complexType>
+
   <!-- Root element -->
   <xs:element name="page">
     <xs:complexType>
@@ -13,7 +34,6 @@
       </xs:sequence>
       <xs:attribute name="id" type="xs:string" use="required"/>
       <xs:attribute name="lang" type="xs:string" use="required"/>
-      <!-- RDFa -->
       <xs:anyAttribute processContents="lax"/>
     </xs:complexType>
   </xs:element>
@@ -76,30 +96,31 @@
 
   <!-- SECTION -->
   <xs:complexType name="sectionType">
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="title" type="xs:string"/>
-        <xs:element name="text" type="xs:string"/>
+        <xs:element name="title" type="textWithAttrs"/>
+        <xs:element name="subtitle" type="textWithAttrs" minOccurs="0"/>
+        <xs:element name="text" type="textWithSpans"/>
         <xs:element name="photo" type="imageType"/>
-        <xs:element name="experience" type="experienceType"/>
-        <xs:element name="diplome" type="diplomeType"/>
-        <xs:element name="list" type="listType"/>
-        <xs:element name="projet" type="projetType"/>
-        <xs:element name="link" type="linkType"/>
+        <xs:element name="video" type="videoType" minOccurs="0"/>
+        <xs:element name="experience" type="experienceType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="diplome" type="diplomeType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="list" type="listType" minOccurs="0"/>
+        <xs:element name="projet" type="projetType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded"/>
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="id" type="xs:string" use="required"/>
-    <!-- RDFa -->
     <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
   <!-- EXPERIENCE -->
   <xs:complexType name="experienceType">
     <xs:sequence>
-      <xs:element name="poste" type="xs:string"/>
-      <xs:element name="employeur" type="xs:string" minOccurs="0"/>
-      <xs:element name="lieu" type="xs:string" minOccurs="0"/>
-      <xs:element name="periode" type="xs:string"/>
+      <xs:element name="poste" type="textWithAttrs"/>
+      <xs:element name="employeur" type="textWithAttrs" minOccurs="0"/>
+      <xs:element name="lieu" type="textWithAttrs" minOccurs="0"/>
+      <xs:element name="periode" type="textWithAttrs"/>
       <xs:element name="missions" type="missionsType"/>
     </xs:sequence>
     <xs:anyAttribute processContents="lax"/>
@@ -107,16 +128,16 @@
 
   <xs:complexType name="missionsType">
     <xs:sequence>
-      <xs:element name="mission" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="mission" type="textWithAttrs" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <!-- DIPLOME -->
   <xs:complexType name="diplomeType">
     <xs:sequence>
-      <xs:element name="etablissement" type="xs:string"/>
-      <xs:element name="intitule" type="xs:string"/>
-      <xs:element name="periode" type="xs:string"/>
+      <xs:element name="etablissement" type="textWithAttrs"/>
+      <xs:element name="intitule" type="textWithAttrs"/>
+      <xs:element name="periode" type="textWithAttrs"/>
     </xs:sequence>
     <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
@@ -124,15 +145,15 @@
   <!-- LIST -->
   <xs:complexType name="listType">
     <xs:sequence>
-      <xs:element name="item" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="item" type="textWithAttrs" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <!-- PROJET -->
   <xs:complexType name="projetType">
     <xs:sequence>
-      <xs:element name="titre" type="xs:string"/>
-      <xs:element name="categorie" type="xs:string"/>
+      <xs:element name="titre" type="textWithAttrs"/>
+      <xs:element name="categorie" type="textWithAttrs"/>
       <xs:element name="technos" type="technosType"/>
       <xs:element name="image" type="imageType"/>
       <xs:element name="description" type="descriptionType"/>
@@ -142,26 +163,33 @@
 
   <xs:complexType name="technosType">
     <xs:sequence>
-      <xs:element name="techno" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="techno" type="textWithAttrs" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="descriptionType">
+    <xs:sequence>
+      <xs:element name="point" type="textWithAttrs" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- IMAGE -->
   <xs:complexType name="imageType">
     <xs:attribute name="src" type="xs:string" use="required"/>
     <xs:attribute name="alt" type="xs:string" use="required"/>
     <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
-  <xs:complexType name="descriptionType">
-    <xs:sequence>
-      <xs:element name="point" type="xs:string" maxOccurs="unbounded"/>
-    </xs:sequence>
+  <!-- VIDEO -->
+  <xs:complexType name="videoType">
+    <xs:attribute name="src" type="xs:string" use="required"/>
+    <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
-  <!-- LINK (contact) -->
-  <xs:complexType name="linkType">
+  <!-- LINK -->
+  <xs:complexType name="linkType" mixed="true">
     <xs:sequence>
-      <xs:element name="img" type="imageType"/>
+      <xs:element name="img" type="imageType" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="href" type="xs:string" use="required"/>
     <xs:attribute name="rel" type="xs:string" use="optional"/>
@@ -171,7 +199,7 @@
   <!-- FOOTER -->
   <xs:complexType name="footerType">
     <xs:sequence>
-      <xs:element name="copyright" type="xs:string"/>
+      <xs:element name="copyright" type="textWithAttrs"/>
     </xs:sequence>
   </xs:complexType>
 
