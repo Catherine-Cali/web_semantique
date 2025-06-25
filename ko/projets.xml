@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page id="projets" lang="ko"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="portfolio.xsd">
+    xmlns:schema="http://schema.org/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    vocab="http://schema.org/"
+    typeof="schema:Collection">
+
   <header>
     <nav>
       <logo img="ressources/ko_flag.png" alt="로고" />
@@ -19,74 +22,93 @@
   <main>
     <section id="projets">
 
-      <projet>
-        <titre>전함 게임</titre>
-        <categorie>학업 프로젝트</categorie>
+      <projet typeof="schema:Project" resource="#projet1">
+        <titre property="schema:name">전함 게임</titre>
+        <categorie property="schema:about">학술 프로젝트</categorie>
         <technos>
-          <techno>C</techno>
-          <techno>GTK</techno>
+          <techno property="schema:programmingLanguage">C</techno>
+          <techno property="schema:programmingLanguage">GTK</techno>
         </technos>
-        <image src="ressources/bataille.png" alt="전함 게임" />
+        <image property="schema:image" src="ressources/bataille.png" alt="전함 게임"/>
         <description>
-          <point>C와 GTK 그래픽 인터페이스를 사용하여 인공지능 또는 로컬 멀티플레이어와 대결할 수 있는 전함 게임을 개발했습니다.</point>
-          <point>플레이어는 배를 배치하고 AI 그리드에 포를 쏘며, AI는 효과적으로 목표를 찾는 알고리즘을 사용합니다.</point>
-          <point>로컬 멀티플레이어 모드에서 배는 위치를 숨기기 위해 무작위로 배치됩니다.</point>
+          <point property="schema:description">C와 GTK를 이용하여 AI 또는 로컬 멀티플레이어와 플레이 가능한 전함 게임 개발.</point>
+          <point property="schema:description">사용자는 자신의 배를 배치하고 AI 그리드를 공격. AI는 알고리즘을 사용하여 효율적으로 타겟팅.</point>
+          <point property="schema:description">로컬 모드에서는 상대방이 위치를 보지 못하도록 무작위 배치 사용.</point>
         </description>
       </projet>
 
-      <projet>
-        <titre>미니 기차 시뮬레이터</titre>
-        <categorie>학업 프로젝트</categorie>
+      <projet typeof="schema:Project" resource="#projet2">
+        <titre property="schema:name">기차 시뮬레이터</titre>
+        <categorie property="schema:about">학술 프로젝트</categorie>
         <technos>
-          <techno>HTML</techno>
-          <techno>CSS</techno>
-          <techno>JavaScript</techno>
+          <techno property="schema:programmingLanguage">HTML</techno>
+          <techno property="schema:programmingLanguage">CSS</techno>
+          <techno property="schema:programmingLanguage">JavaScript</techno>
         </technos>
-        <image src="ressources/train.png" alt="기차 시뮬레이터" />
+        <image property="schema:image" src="ressources/train.png" alt="기차 시뮬레이터"/>
         <description>
-          <point>2D 보드에서 열차가 레일을 따라 움직이는 기차 시뮬레이터를 개발했습니다.</point>
-          <point>열차가 보드를 벗어나거나 호환되지 않는 타일을 지나가지 않도록 제약을 구현했습니다.</point>
-          <point>사용자가 실시간으로 열차를 추가하고 보드를 편집하며 행동을 관찰할 수 있습니다.</point>
+          <point property="schema:description">2D 철도 시뮬레이터 개발, 기차가 선로를 따라 이동 가능.</point>
+          <point property="schema:description">기차가 잘못된 칸에 진입하거나 탈선하지 않도록 제약 추가.</point>
+          <point property="schema:description">사용자가 실시간으로 기차 추가 및 맵 수정 가능.</point>
         </description>
       </projet>
 
-      <projet>
-        <titre>포트폴리오 웹사이트</titre>
-        <categorie>개인 프로젝트</categorie>
+      <projet typeof="schema:Project" resource="#projet3">
+        <titre property="schema:name">포트폴리오 웹사이트</titre>
+        <categorie property="schema:about">개인 프로젝트</categorie>
         <technos>
-          <techno>HTML</techno>
-          <techno>CSS</techno>
-          <techno>JavaScript</techno>
+          <techno property="schema:programmingLanguage">HTML</techno>
+          <techno property="schema:programmingLanguage">CSS</techno>
+          <techno property="schema:programmingLanguage">JavaScript</techno>
         </technos>
-        <image src="ressources/portfolio.png" alt="포트폴리오 웹사이트" />
+        <image property="schema:image" src="ressources/portfolio.png" alt="포트폴리오"/>
         <description>
-          <point>프로젝트와 기술을 보여주기 위해 개인 포트폴리오 웹사이트를 설계하고 개발했습니다.</point>
-          <point>모든 기기에서 보기 좋도록 반응형 디자인을 구현했습니다.</point>
-          <point>JavaScript를 사용하여 인터랙티브한 기능을 추가하고 사용자 경험을 향상시켰습니다.</point>
+          <point property="schema:description">자신의 프로젝트 및 기술을 소개하는 포트폴리오 웹사이트 설계 및 구현.</point>
+          <point property="schema:description">모든 기기에서 최적화된 반응형 디자인 적용.</point>
+          <point property="schema:description">JavaScript를 이용해 상호작용 기능 구현 및 UX 향상.</point>
         </description>
       </projet>
 
-      <projet>
-        <titre>물류 센터 배치</titre>
-        <categorie>학업 프로젝트</categorie>
+      <projet typeof="schema:Project" resource="#projet4">
+        <titre property="schema:name">물류 센터 배치 최적화</titre>
+        <categorie property="schema:about">학술 프로젝트</categorie>
         <technos>
-          <techno>운영 연구</techno>
-          <techno>ILP</techno>
-          <techno>메타휴리스틱</techno>
+          <techno property="schema:programmingLanguage">운영 연구</techno>
+          <techno property="schema:programmingLanguage">정수선형계획법 (PLNE)</techno>
+          <techno property="schema:programmingLanguage">메타 휴리스틱</techno>
         </technos>
-        <image src="ressources/oloc.png" alt="Optimisation"/>
+        <image property="schema:image" src="ressources/oloc.png" alt="최적화"/>
         <description>
-          <point>국가 내에서 물류 센터를 최적 배치하기 위한 조합 최적화 문제를 연구했습니다.</point>
-          <point>선형 및 조합 최적화 개념을 적용했습니다.</point>
-          <point>ILP를 사용하여 문제를 모델링하고 탐욕 및 메타휴리스틱 방법을 개발했습니다.</point>
-          <point>품질과 계산 시간을 기준으로 방법을 비교하여 최적 솔루션을 추천했습니다.</point>
+          <point property="schema:description">국가 내 물류 센터 최적 배치를 위한 조합 최적화 문제 분석.</point>
+          <point property="schema:description">선형 및 조합 최적화 이론 적용.</point>
+          <point property="schema:description">PLNE 모델링 및 탐욕/메타 휴리스틱 알고리즘 개발.</point>
+          <point property="schema:description">해결 방법의 품질과 시간 비교 분석을 통해 최적 솔루션 제안.</point>
         </description>
       </projet>
 
     </section>
+
+    <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">연락처</title>
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="이메일"/>
+        이메일
+      </link>
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="깃허브"/>
+        GitHub
+      </link>
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account">
+        <img src="ressources/icons/linkedin.png" alt="링크드인"/>
+        LinkedIn
+      </link>
+    </section>
   </main>
 
   <footer>
-    <copyright>© 2025 Catherine CALI – 판권 소유.</copyright>
+    <copyright>
+      © 2025 Catherine CALI – 모든 권리 보유.
+    </copyright>
   </footer>
+
 </page>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page id="projets" lang="en"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="portfolio.xsd">
+    xmlns:schema="http://schema.org/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    vocab="http://schema.org/"
+    typeof="schema:Collection">
+
   <header>
     <nav>
       <logo img="ressources/en_flag.png" alt="Logo" />
@@ -19,78 +22,93 @@
   <main>
     <section id="projets">
 
-      <!-- Project 1 -->
-      <projet>
-        <titre>Battleship Game</titre>
-        <categorie>ACADEMIC PROJECT</categorie>
+      <projet typeof="schema:Project" resource="#projet1">
+        <titre property="schema:name">Battleship Game</titre>
+        <categorie property="schema:about">ACADEMIC PROJECT</categorie>
         <technos>
-          <techno>C</techno>
-          <techno>GTK</techno>
+          <techno property="schema:programmingLanguage">C</techno>
+          <techno property="schema:programmingLanguage">GTK</techno>
         </technos>
-        <image src="ressources/bataille.png" alt="Battleship Game" />
+        <image property="schema:image" src="ressources/bataille.png" alt="Battleship game"/>
         <description>
-          <point>Developed a Battleship game in C with a GTK graphical interface, allowing play against AI or local multiplayer.</point>
-          <point>The player places ships and fires on the AI grid, which uses algorithms to effectively target ships.</point>
-          <point>In local multiplayer mode, ships are placed randomly to avoid giving away positions.</point>
+          <point property="schema:description">Developed a battleship game in C with a GTK GUI, playable against an AI or in local multiplayer mode.</point>
+          <point property="schema:description">Players place ships and fire on the AI grid, which uses algorithms to target efficiently.</point>
+          <point property="schema:description">In local mode, ships are placed randomly to hide their position from opponents.</point>
         </description>
       </projet>
 
-      <!-- Project 2 -->
-      <projet>
-        <titre>Mini Train Simulator</titre>
-        <categorie>ACADEMIC PROJECT</categorie>
+      <projet typeof="schema:Project" resource="#projet2">
+        <titre property="schema:name">Mini Train Simulator</titre>
+        <categorie property="schema:about">ACADEMIC PROJECT</categorie>
         <technos>
-          <techno>HTML</techno>
-          <techno>CSS</techno>
-          <techno>JavaScript</techno>
+          <techno property="schema:programmingLanguage">HTML</techno>
+          <techno property="schema:programmingLanguage">CSS</techno>
+          <techno property="schema:programmingLanguage">JavaScript</techno>
         </technos>
-        <image src="ressources/train.png" alt="Train Simulator" />
+        <image property="schema:image" src="ressources/train.png" alt="Train simulator"/>
         <description>
-          <point>Developed a 2D train simulator where trains move along tracks on a board.</point>
-          <point>Implemented rules to prevent trains from leaving the board or using incompatible tiles.</point>
-          <point>Enabled users to add trains, edit the board in real time, and watch train behavior live.</point>
+          <point property="schema:description">Created a 2D rail simulator where trains move along a track map.</point>
+          <point property="schema:description">Added rules to prevent trains from derailing or reaching invalid cells.</point>
+          <point property="schema:description">Users can add trains, edit the track in real time, and observe train behavior.</point>
         </description>
       </projet>
 
-      <!-- Project 3 -->
-      <projet>
-        <titre>Portfolio Website</titre>
-        <categorie>PERSONAL PROJECT</categorie>
+      <projet typeof="schema:Project" resource="#projet3">
+        <titre property="schema:name">Personal Portfolio Site</titre>
+        <categorie property="schema:about">PERSONAL PROJECT</categorie>
         <technos>
-          <techno>HTML</techno>
-          <techno>CSS</techno>
-          <techno>JavaScript</techno>
+          <techno property="schema:programmingLanguage">HTML</techno>
+          <techno property="schema:programmingLanguage">CSS</techno>
+          <techno property="schema:programmingLanguage">JavaScript</techno>
         </technos>
-        <image src="ressources/portfolio.png" alt="Portfolio Website" />
+        <image property="schema:image" src="ressources/portfolio.png" alt="Portfolio website"/>
         <description>
-          <point>Designed and developed a personal portfolio website to showcase projects and skills.</point>
-          <point>Implemented a responsive design to ensure optimal viewing on all devices.</point>
-          <point>Used JavaScript to create interactive features and enhance user experience.</point>
+          <point property="schema:description">Designed and built a personal website to showcase projects and skills.</point>
+          <point property="schema:description">Implemented a responsive design for all screen sizes.</point>
+          <point property="schema:description">Used JavaScript for interactive features to enhance user experience.</point>
         </description>
       </projet>
 
-      <!-- Project 4 -->
-      <projet>
-        <titre>Logistics Center Placement</titre>
-        <categorie>ACADEMIC PROJECT</categorie>
+      <projet typeof="schema:Project" resource="#projet4">
+        <titre property="schema:name">Logistics Center Placement</titre>
+        <categorie property="schema:about">ACADEMIC PROJECT</categorie>
         <technos>
-          <techno>Operations Research</techno>
-          <techno>ILP</techno>
-          <techno>Metaheuristics</techno>
+          <techno property="schema:programmingLanguage">Operations Research</techno>
+          <techno property="schema:programmingLanguage">MILP</techno>
+          <techno property="schema:programmingLanguage">Metaheuristics</techno>
         </technos>
-         <image src="ressources/oloc.png" alt="Optimisation"/>
+        <image property="schema:image" src="ressources/oloc.png" alt="Optimization"/>
         <description>
-          <point>Studied a combinatorial optimization problem to place logistics centers optimally in a country.</point>
-          <point>Applied concepts from linear and combinatorial optimization.</point>
-          <point>Modeled the problem with ILP and developed greedy and metaheuristic methods.</point>
-          <point>Compared methods by quality and computation time to recommend the best solution.</point>
+          <point property="schema:description">Studied a combinatorial optimization problem for placing logistics centers in a country.</point>
+          <point property="schema:description">Applied linear and combinatorial optimization techniques.</point>
+          <point property="schema:description">Modeled using MILP and implemented greedy and metaheuristic algorithms.</point>
+          <point property="schema:description">Compared solutions by quality and runtime to recommend the best approach.</point>
         </description>
       </projet>
 
     </section>
+
+    <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">Contact</title>
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="Email"/>
+        Email
+      </link>
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="GitHub"/>
+        GitHub
+      </link>
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account">
+        <img src="ressources/icons/linkedin.png" alt="LinkedIn"/>
+        LinkedIn
+      </link>
+    </section>
   </main>
 
   <footer>
-    <copyright>© 2025 Catherine CALI – All rights reserved.</copyright>
+    <copyright>
+      © 2025 Catherine CALI – All rights reserved.
+    </copyright>
   </footer>
+
 </page>

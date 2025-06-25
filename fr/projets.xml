@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page id="projets" lang="fr"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="portfolio.xsd">
+    xmlns:schema="http://schema.org/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    vocab="http://schema.org/"
+    typeof="schema:Collection">
+
   <header>
     <nav>
       <logo img="ressources/fr_flag.png" alt="Logo" />
@@ -20,77 +23,99 @@
     <section id="projets">
 
       <!-- Projet 1 -->
-      <projet>
-        <titre>Bataille Navale</titre>
-        <categorie>PROJET ACADÉMIQUE</categorie>
+      <projet typeof="schema:Project" resource="#projet1">
+        <titre property="schema:name">Bataille Navale</titre>
+        <categorie property="schema:about">PROJET ACADÉMIQUE</categorie>
         <technos>
-          <techno>C</techno>
-          <techno>GTK</techno>
+          <techno property="schema:programmingLanguage">C</techno>
+          <techno property="schema:programmingLanguage">GTK</techno>
         </technos>
-        <image src="ressources/bataille.png" alt="Jeu de bataille navale"/>
+        <image property="schema:image" src="ressources/bataille.png" alt="Jeu de bataille navale"/>
         <description>
-          <point>Développement d'un jeu de bataille navale en C avec une interface graphique GTK, permettant de jouer contre une intelligence artificielle ou en mode multijoueur local.</point>
-          <point>Le joueur place ses bateaux et tire sur la grille de l'IA, qui utilise des algorithmes pour cibler les bateaux efficacement.</point>
-          <point>En mode multijoueur local, les bateaux sont placés aléatoirement pour éviter que l'adversaire ne voie les positions des bateaux.</point>
+          <point property="schema:description">Développement d'un jeu de bataille navale en C avec une interface graphique GTK, permettant de jouer contre une intelligence artificielle ou en mode multijoueur local.</point>
+          <point property="schema:description">Le joueur place ses bateaux et tire sur la grille de l'IA, qui utilise des algorithmes pour cibler les bateaux efficacement.</point>
+          <point property="schema:description">En mode multijoueur local, les bateaux sont placés aléatoirement pour éviter que l'adversaire ne voie les positions des bateaux.</point>
         </description>
       </projet>
 
       <!-- Projet 2 -->
-      <projet>
-        <titre>Petit train</titre>
-        <categorie>PROJET ACADÉMIQUE</categorie>
+      <projet typeof="schema:Project" resource="#projet2">
+        <titre property="schema:name">Petit train</titre>
+        <categorie property="schema:about">PROJET ACADÉMIQUE</categorie>
         <technos>
-          <techno>HTML</techno>
-          <techno>CSS</techno>
-          <techno>JavaScript</techno>
+          <techno property="schema:programmingLanguage">HTML</techno>
+          <techno property="schema:programmingLanguage">CSS</techno>
+          <techno property="schema:programmingLanguage">JavaScript</techno>
         </technos>
-        <image src="ressources/train.png" alt="Simulateur ferroviaire"/>
+        <image property="schema:image" src="ressources/train.png" alt="Simulateur ferroviaire"/>
         <description>
-          <point>Développé un simulateur ferroviaire en deux dimensions permettant aux trains de se déplacer le long des rails sur un plateau.</point>
-          <point>Implémenté des restrictions pour empêcher les trains de sortir du plateau ou d'aller sur des cases incompatibles.</point>
-          <point>Permis aux utilisateurs d'ajouter des trains, de modifier le plateau en temps réel et d'observer le comportement des trains en mouvement.</point>
+          <point property="schema:description">Développé un simulateur ferroviaire en deux dimensions permettant aux trains de se déplacer le long des rails sur un plateau.</point>
+          <point property="schema:description">Implémenté des restrictions pour empêcher les trains de sortir du plateau ou d'aller sur des cases incompatibles.</point>
+          <point property="schema:description">Permis aux utilisateurs d'ajouter des trains, de modifier le plateau en temps réel et d'observer le comportement des trains en mouvement.</point>
         </description>
       </projet>
 
       <!-- Projet 3 -->
-      <projet>
-        <titre>Site Portfolio</titre>
-        <categorie>PROJET PERSONNEL</categorie>
+      <projet typeof="schema:Project" resource="#projet3">
+        <titre property="schema:name">Site Portfolio</titre>
+        <categorie property="schema:about">PROJET PERSONNEL</categorie>
         <technos>
-          <techno>HTML</techno>
-          <techno>CSS</techno>
-          <techno>JavaScript</techno>
+          <techno property="schema:programmingLanguage">HTML</techno>
+          <techno property="schema:programmingLanguage">CSS</techno>
+          <techno property="schema:programmingLanguage">JavaScript</techno>
         </technos>
-        <image src="ressources/portfolio.png" alt="Site Portfolio"/>
+        <image property="schema:image" src="ressources/portfolio.png" alt="Site Portfolio"/>
         <description>
-          <point>Conçu et développé un site web de portfolio personnel pour présenter mes projets et compétences.</point>
-          <point>Implémenté un design responsive pour garantir une visualisation optimale sur tous les appareils.</point>
-          <point>Utilisé JavaScript pour créer des fonctionnalités interactives et améliorer l'expérience utilisateur.</point>
+          <point property="schema:description">Conçu et développé un site web de portfolio personnel pour présenter mes projets et compétences.</point>
+          <point property="schema:description">Implémenté un design responsive pour garantir une visualisation optimale sur tous les appareils.</point>
+          <point property="schema:description">Utilisé JavaScript pour créer des fonctionnalités interactives et améliorer l'expérience utilisateur.</point>
         </description>
       </projet>
 
       <!-- Projet 4 -->
-      <projet>
-        <titre>Placement de centres logistiques</titre>
-        <categorie>PROJET ACADÉMIQUE</categorie>
+      <projet typeof="schema:Project" resource="#projet4">
+        <titre property="schema:name">Placement de centres logistiques</titre>
+        <categorie property="schema:about">PROJET ACADÉMIQUE</categorie>
         <technos>
-          <techno>Recherche Opérationnelle</techno>
-          <techno>PLNE</techno>
-          <techno>Méta-heuristiques</techno>
+          <techno property="schema:programmingLanguage">Recherche Opérationnelle</techno>
+          <techno property="schema:programmingLanguage">PLNE</techno>
+          <techno property="schema:programmingLanguage">Méta-heuristiques</techno>
         </technos>
-        <image src="ressources/oloc.png" alt="Optimisation"/>
+        <image property="schema:image" src="ressources/oloc.png" alt="Optimisation"/>
         <description>
-          <point>Étude d’un problème d’optimisation combinatoire pour placer des centres logistiques de manière optimale dans un pays.</point>
-          <point>Application des concepts vus en optimisation linéaire et combinatoire.</point>
-          <point>Modélisation via PLNE et développement de méthodes gloutonnes et méta-heuristiques.</point>
-          <point>Analyse comparative des méthodes en qualité et temps de calcul pour recommander la solution optimale.</point>
+          <point property="schema:description">Étude d’un problème d’optimisation combinatoire pour placer des centres logistiques de manière optimale dans un pays.</point>
+          <point property="schema:description">Application des concepts vus en optimisation linéaire et combinatoire.</point>
+          <point property="schema:description">Modélisation via PLNE et développement de méthodes gloutonnes et méta-heuristiques.</point>
+          <point property="schema:description">Analyse comparative des méthodes en qualité et temps de calcul pour recommander la solution optimale.</point>
         </description>
       </projet>
 
     </section>
-  </main>
+        <section id="contact" typeof="foaf:Person">
+      <title property="dc:title">Contact</title>
 
+      <link href="mailto:catherinecalipro@gmail.com" rel="foaf:mbox">
+        <img src="ressources/icons/mail.png" alt="Email"/>
+        Email
+      </link>
+
+      <link href="https://github.com/Catherine-Cali" rel="foaf:homepage">
+        <img src="ressources/icons/github.png" alt="GitHub"/>
+        GitHub
+      </link>
+
+      <link href="https://linkedin.com/in/catherine-cali" rel="foaf:account">
+        <img src="ressources/icons/linkedin.png" alt="LinkedIn"/>
+        LinkedIn
+      </link>
+    </section>
+  </main>
+  
   <footer>
-    <copyright>© 2025 Catherine CALI - Tous droits réservés.</copyright>
+    <copyright>
+      © 2025 Catherine CALI - Tous droits réservés.
+    </copyright>
   </footer>
+
 </page>
+

@@ -80,35 +80,52 @@
             </section>
           </xsl:when>
 
-          <xsl:when test="$pageId = 'projets'">
-            <section id="projets">
-              <xsl:for-each select="page/main/section[@id='projets']/projet">
-                <div class="card">
-                  <h2><xsl:value-of select="titre"/></h2>
-                  <h4 style="color: gray;"><xsl:value-of select="categorie"/></h4>
-                  <div>
-                    <xsl:for-each select="technos/techno">
-                      <span style="display: inline-block; background-color: #eee; padding: 5px 10px; margin: 2px; border-radius: 10px; font-family: monospace;">
-                        <xsl:value-of select="."/>
-                      </span>
-                    </xsl:for-each>
-                  </div>
-                  <xsl:if test="image">
-                    <img>
-                      <xsl:attribute name="src"><xsl:value-of select="image/@src"/></xsl:attribute>
-                      <xsl:attribute name="alt"><xsl:value-of select="image/@alt"/></xsl:attribute>
-                      <xsl:attribute name="style">max-width: 100%; margin-top: 15px; border-radius: 8px;</xsl:attribute>
-                    </img>
-                  </xsl:if>
-                  <ul>
-                    <xsl:for-each select="description/point">
-                      <li><xsl:value-of select="."/></li>
-                    </xsl:for-each>
-                  </ul>
-                </div>
-              </xsl:for-each>
-            </section>
-          </xsl:when>
+<xsl:when test="$pageId = 'projets'">
+  <section id="projets" vocab="http://schema.org/">
+
+    <xsl:for-each select="page/main/section[@id='projets']/projet">
+      <xsl:variable name="projIndex" select="position()"/>
+
+      <div class="card" typeof="schema:Project" resource="#projet{$projIndex}">
+        <h2 property="schema:name">
+          <xsl:value-of select="titre"/>
+        </h2>
+
+        <h4 style="color: gray;" property="schema:about">
+          <xsl:value-of select="categorie"/>
+        </h4>
+
+        <div>
+          <xsl:for-each select="technos/techno">
+            <span
+              property="schema:programmingLanguage"
+              style="display: inline-block; background-color: #eee; padding: 5px 10px; margin: 2px; border-radius: 10px; font-family: monospace;">
+              <xsl:value-of select="."/>
+            </span>
+          </xsl:for-each>
+        </div>
+
+        <xsl:if test="image">
+          <img property="schema:image">
+            <xsl:attribute name="src"><xsl:value-of select="image/@src"/></xsl:attribute>
+            <xsl:attribute name="alt"><xsl:value-of select="image/@alt"/></xsl:attribute>
+            <xsl:attribute name="style">max-width: 50%; margin-top: 15px; border-radius: 8px;</xsl:attribute>
+          </img>
+        </xsl:if>
+
+        <ul>
+          <xsl:for-each select="description/point">
+            <li property="schema:description">
+              <xsl:value-of select="."/>
+            </li>
+          </xsl:for-each>
+        </ul>
+      </div>
+
+    </xsl:for-each>
+
+  </section>
+</xsl:when>
 
           <xsl:otherwise>
             <xsl:variable name="exp" select="page/main/section[@id='experiences']"/>
