@@ -38,9 +38,9 @@
     </section>
 
     <section id="video">
-      <title property="dc:title">Présentation vidéo</title>
-      <subtitle property="dc:description">Découvrez mon parcours et mes projets</subtitle>
-      <video src="https://youtu.be/sHphc4Fy04w" />
+      <title>Présentation vidéo</title>
+      <subtitle>Découvrez mon parcours et mes projets</subtitle>
+      <embed type="video" src="https://www.youtube.com/embed/sHphc4Fy04w"/>
     </section>
 
     <section id="contact" typeof="foaf:Person">
