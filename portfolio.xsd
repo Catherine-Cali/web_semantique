@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
 
-  <!-- Page -->
+  <!-- Root element -->
   <xs:element name="page">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="header" type="HeaderType"/>
-        <xs:element name="main" type="MainType"/>
-        <xs:element name="footer" type="FooterType"/>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="main" type="mainType"/>
+        <xs:element name="footer" type="footerType"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:string" use="required"/>
       <xs:attribute name="lang" type="xs:string" use="required"/>
+      <!-- RDFa -->
+      <xs:anyAttribute processContents="lax"/>
     </xs:complexType>
   </xs:element>
 
-  <!-- Header -->
-  <xs:complexType name="HeaderType">
+  <!-- HEADER -->
+  <xs:complexType name="headerType">
     <xs:sequence>
-      <xs:element name="nav" type="NavType"/>
+      <xs:element name="nav" type="navType"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Navigation -->
-  <xs:complexType name="NavType">
+  <xs:complexType name="navType">
     <xs:sequence>
-      <xs:element name="logo" type="ImageType"/>
-      <xs:element name="menu" type="MenuType"/>
-      <xs:element name="themeToggle" type="ThemeToggleType" minOccurs="0"/>
+      <xs:element name="logo" type="logoType"/>
+      <xs:element name="menu" type="menuType"/>
+      <xs:element name="themeToggle" type="themeToggleType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Logo / Photo -->
-  <xs:complexType name="ImageType">
+  <xs:complexType name="logoType">
     <xs:attribute name="img" type="xs:string" use="required"/>
     <xs:attribute name="alt" type="xs:string" use="required"/>
   </xs:complexType>
 
-  <!-- Menu -->
-  <xs:complexType name="MenuType">
+  <xs:complexType name="menuType">
     <xs:sequence>
-      <xs:element name="item" type="MenuItemType" maxOccurs="unbounded"/>
-      <xs:element name="lang" type="LangType" maxOccurs="unbounded"/>
+      <xs:element name="item" type="itemType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="lang" type="langType" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="MenuItemType">
+  <xs:complexType name="itemType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="id" type="xs:string" use="required"/>
@@ -52,120 +53,125 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <!-- Language switch -->
-  <xs:complexType name="LangType">
+  <xs:complexType name="langType">
     <xs:attribute name="code" type="xs:string" use="required"/>
     <xs:attribute name="icon" type="xs:string" use="required"/>
   </xs:complexType>
 
-  <!-- Toggle Theme -->
-  <xs:complexType name="ThemeToggleType">
+  <xs:complexType name="themeToggleType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
-        <xs:attribute name="id" type="xs:string" use="required"/>
-        <xs:attribute name="icon" type="xs:string" use="required"/>
+        <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="icon" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
 
-  <!-- Main -->
-  <xs:complexType name="MainType">
+  <!-- MAIN -->
+  <xs:complexType name="mainType">
     <xs:sequence>
-      <xs:element name="section" type="SectionType" maxOccurs="unbounded"/>
+      <xs:element name="section" type="sectionType" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Section -->
-  <xs:complexType name="SectionType">
+  <!-- SECTION -->
+  <xs:complexType name="sectionType">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="title" type="xs:string"/>
-        <xs:element name="subtitle" type="xs:string"/>
         <xs:element name="text" type="xs:string"/>
-        <xs:element name="photo" type="PhotoType"/>
-        <xs:element name="video" type="VideoType"/>
-        <xs:element name="experience" type="ExperienceType" maxOccurs="unbounded"/>
-        <xs:element name="diplome" type="DiplomeType" maxOccurs="unbounded"/>
-        <xs:element name="list" type="ListType"/>
-        <xs:element name="projet" type="ProjetType" maxOccurs="unbounded"/>
+        <xs:element name="photo" type="imageType"/>
+        <xs:element name="experience" type="experienceType"/>
+        <xs:element name="diplome" type="diplomeType"/>
+        <xs:element name="list" type="listType"/>
+        <xs:element name="projet" type="projetType"/>
+        <xs:element name="link" type="linkType"/>
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="id" type="xs:string" use="required"/>
+    <!-- RDFa -->
+    <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
-  <!-- Photo -->
-  <xs:complexType name="PhotoType">
-    <xs:attribute name="src" type="xs:string" use="required"/>
-    <xs:attribute name="alt" type="xs:string" use="required"/>
-  </xs:complexType>
-
-  <!-- Video -->
-  <xs:complexType name="VideoType">
-    <xs:attribute name="platform" type="xs:string" use="required"/>
-    <xs:attribute name="src" type="xs:string" use="required"/>
-  </xs:complexType>
-
-  <!-- Experience -->
-  <xs:complexType name="ExperienceType">
+  <!-- EXPERIENCE -->
+  <xs:complexType name="experienceType">
     <xs:sequence>
       <xs:element name="poste" type="xs:string"/>
       <xs:element name="employeur" type="xs:string" minOccurs="0"/>
-      <xs:element name="lieu" type="xs:string"/>
+      <xs:element name="lieu" type="xs:string" minOccurs="0"/>
       <xs:element name="periode" type="xs:string"/>
-      <xs:element name="missions" type="MissionsType"/>
+      <xs:element name="missions" type="missionsType"/>
     </xs:sequence>
+    <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
-  <xs:complexType name="MissionsType">
+  <xs:complexType name="missionsType">
     <xs:sequence>
       <xs:element name="mission" type="xs:string" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Diplome -->
-  <xs:complexType name="DiplomeType">
+  <!-- DIPLOME -->
+  <xs:complexType name="diplomeType">
     <xs:sequence>
       <xs:element name="etablissement" type="xs:string"/>
       <xs:element name="intitule" type="xs:string"/>
       <xs:element name="periode" type="xs:string"/>
     </xs:sequence>
+    <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
-  <!-- List -->
-  <xs:complexType name="ListType">
+  <!-- LIST -->
+  <xs:complexType name="listType">
     <xs:sequence>
       <xs:element name="item" type="xs:string" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Projet -->
-  <xs:complexType name="ProjetType">
+  <!-- PROJET -->
+  <xs:complexType name="projetType">
     <xs:sequence>
       <xs:element name="titre" type="xs:string"/>
       <xs:element name="categorie" type="xs:string"/>
-      <xs:element name="technos" type="TechnosType"/>
-      <xs:element name="image" type="PhotoType" minOccurs="0"/>
-      <xs:element name="description" type="DescriptionType"/>
+      <xs:element name="technos" type="technosType"/>
+      <xs:element name="image" type="imageType"/>
+      <xs:element name="description" type="descriptionType"/>
     </xs:sequence>
+    <xs:anyAttribute processContents="lax"/>
   </xs:complexType>
 
-  <xs:complexType name="TechnosType">
+  <xs:complexType name="technosType">
     <xs:sequence>
       <xs:element name="techno" type="xs:string" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="DescriptionType">
+  <xs:complexType name="imageType">
+    <xs:attribute name="src" type="xs:string" use="required"/>
+    <xs:attribute name="alt" type="xs:string" use="required"/>
+    <xs:anyAttribute processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="descriptionType">
     <xs:sequence>
       <xs:element name="point" type="xs:string" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Footer -->
-  <xs:complexType name="FooterType">
+  <!-- LINK (contact) -->
+  <xs:complexType name="linkType">
     <xs:sequence>
-      <xs:element name="contact" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="copyright" type="xs:string" minOccurs="0"/>
+      <xs:element name="img" type="imageType"/>
+    </xs:sequence>
+    <xs:attribute name="href" type="xs:string" use="required"/>
+    <xs:attribute name="rel" type="xs:string" use="optional"/>
+    <xs:attribute name="typeof" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <!-- FOOTER -->
+  <xs:complexType name="footerType">
+    <xs:sequence>
+      <xs:element name="copyright" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
